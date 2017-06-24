@@ -1,0 +1,163 @@
+module reversi.board.impl.modelbase;
+
+import reversi.board.intf.board;
+
+import std.conv : to;
+
+abstract class ReversiModelBase(int N = 8) : IGenericReversiBoard!N
+{
+private:
+    Stone _turn;
+    Stone[N][N] _field;
+
+    void turn(in Stone turn) @property
+    in{ assert(!turn.isNone, "Not set turn to none"); }
+    body{
+        _turn = turn;
+    }
+
+protected:
+    void opIndexAssign(in Stone s, in int x, in int y)
+    in{
+        assert(
+            isInField(x, y),
+            "Out of field ("~x.to!string~","~y.to!string~")"
+        );
+    }
+    body{
+        _field[y][x] = s;
+    }
+
+public:
+    this()
+    {
+        turn = Stone.black;
+
+        foreach(i; 0..N)
+            foreach(j; 0..N)
+                this[i, j] = Stone.none;
+
+        this[N/2 - 1, N/2 - 1] = Stone.white;
+        this[N/2 - 1, N/2] = Stone.black;
+        this[N/2, N/2 - 1] = Stone.black;
+        this[N/2, N/2] = Stone.white;
+    }
+
+    Stone turn() const @property
+    {
+        return _turn;
+    }
+    Stone getStone(in int x, in int y) const
+    in
+    {
+        assert(
+            isInField(x, y),
+            "Out of field ("~x.to!string~","~y.to!string~")"
+        );
+    }
+    body{
+        return _field[y][x];
+    }
+    Stone opIndex(in int x, in int y) const
+    {
+        return getStone(x, y);
+    }
+
+    int countBlack() const
+    {
+        int cnt = 0;
+        foreach(x; 0..N)
+            foreach(y; 0..N)
+                if(this[x, y].isBlack)
+                    ++cnt;
+        return cnt;
+    }
+    int countWhite() const
+    {
+        int cnt = 0;
+        foreach(x; 0..N)
+            foreach(y; 0..N)
+                if(this[x, y].isWhite)
+                    ++cnt;
+        return cnt;
+    }
+    int countAll() const
+    {
+        int cnt = 0;
+        foreach(x; 0..N)
+            foreach(y; 0..N)
+                if(!this[x, y].isNone)
+                    ++cnt;
+        return cnt;
+    }
+    Stone getPredominance() const
+    {
+        immutable b = countBlack();
+        immutable w = countWhite();
+        if(b > w)
+            return Stone.black;
+        if(b < w)
+            return Stone.white;
+        return Stone.none;
+    }
+    bool isFinished() const
+    {
+        if(countAll == N * N)
+            return true;
+
+        foreach(x; 0..N)
+            foreach(y; 0..N)
+                if(canPutStone(x, y))
+                    return false;
+        return true;
+    }
+
+    abstract bool canPutStone(in int x, in int y) const;
+    abstract int countObtainStoneWhenPut(in int x, in int y) const;
+
+    bool isMyStone(in int x, in int y) const
+    {
+        return this[x, y] == turn;
+    }
+
+    bool isInField(in int x) const pure
+    {
+        return x >= 0 && x < N;
+    }
+
+    bool isInField(in int x, in int y) const pure
+    {
+        return isInField(x) && isInField(y);
+    }
+
+    abstract void putStone(in int x, in int y);
+
+    void pass()
+    {
+        turn = turn.rev;
+    }
+
+    override string toString() const
+    {
+        string ret = " ";
+        foreach(i; 1..N+1)
+            ret ~= " " ~ i.to!string;
+
+        ret ~= "\n";
+
+        foreach(y; 0..N)
+        {
+            ret ~= (y + 1).to!string ~ " ";
+            foreach(x; 0..N)
+              ret ~= this[x, y].symbol ~ " ";
+            ret ~= (y + 1).to!string ~ "\n";
+        }
+
+        ret ~= " ";
+
+        foreach(i; 1..N+1)
+            ret ~= " " ~ i.to!string;
+
+        return ret ~ "\n";
+    }
+}

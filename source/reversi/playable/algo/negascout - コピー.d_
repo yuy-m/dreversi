@@ -1,0 +1,304 @@
+module reversi.playable.algo.negascout;
+
+import std.stdio;
+public import reversi.playable.iplayer;
+import reversi.board.iboard;
+import reversi.playable.utility;
+import reversi.playable.evaluate;
+
+immutable HASH = 0;//false;
+
+class NegaScout(int DEPTH = 3, int HASH_DEPTH = DEPTH) : IPlayer
+if(DEPTH >= HASH_DEPTH)
+{
+    override bool getMove(in IReversiBoard rb, out int x, out int y)
+    {
+        stdout.flush;
+            return cpu(cast()rb, x, y, DEPTH, 10);
+    }
+
+private:
+
+    static bool cpu(IReversiBoard rb, out int x, out int y, in int depth, in int last_depth)
+    {
+        import std.algorithm;
+        immutable not_pass = iddfs(rb, x, y, min(depth, rb.fieldSize - rb.countAll));
+
+        return not_pass && rb.canPutStone(x, y);
+    }
+
+    static bool iddfs(IReversiBoard rb, out int x, out int y, in int max_depth)
+    {
+        auto pvs = getCanPutPosVal(rb);
+        if(pvs.length == 0)
+            return false;
+
+        //HashValue hv_tmp;
+
+        int depth = max_depth % 3;
+
+        for( ; depth <= max_depth ; depth += 3)
+        {
+            try rb.putStoneWithSave(pvs[0].x, pvs[0].y);
+            catch(CannotPutException e)
+            {
+                stderr.writeln(e);
+                assert(0, "Ahah?");
+            }
+
+            int max_val = -negascout(rb, int.min, int.max, false, depth-1);
+            rb.restore;
+
+            x = pvs[0].x;
+            y = pvs[0].y;
+
+            int alpha = max_val;
+            pvs[0].val = max_val;
+
+            foreach(ref p; pvs[1..$])
+            {
+                try rb.putStoneWithSave(p.x, p.y);
+                catch(CannotPutException e)
+                {
+                    stderr.writeln(e);
+                    assert(0, "Uhah?");
+                }
+                p.val = -negascout(rb, -alpha-1, -alpha, false, depth-1);//NullWindowSearch
+
+                if(p.val > alpha) //通常探索
+                {
+                    alpha = p.val;
+
+                    p.val = -negascout(rb, int.min, -alpha, false, depth-1);
+
+                    if(p.val > alpha)
+                        alpha = p.val;
+                }
+                rb.restore;
+
+                if(p.val > max_val)
+                {
+                    max_val = p.val;
+                    x = p.x;
+                    y = p.y;
+                }
+            }
+
+            sort(pvs); //move ordering
+        }
+        return true;
+    }
+
+    static if(HASH)
+    {
+        import std.typecons;
+        alias key_t = Tuple!(const int, const int, const int); // depth, alpha, beta
+        static int[IReversiBoard][key_t] hash = null;
+
+        static const(int*) getHash(IReversiBoard rb, in int depth, in int alpha, in int beta)
+        {
+            if(const p_ = tuple(depth, alpha, beta) in hash)
+                return rb in *p_;
+            return null;
+        }
+
+        static void setHash(IReversiBoard rb, in int val, in int depth, in int alpha, in int beta)
+        {
+            immutable key = tuple(depth, alpha, beta);
+            if(auto p_ = key in hash)
+            {
+                if(auto p = rb in *p_)
+                    *p = val;
+                else
+                    (*p_)[rb] = val;
+            }
+            else
+                hash[key][rb] = val;
+        }
+    }
+
+    import std.functional;
+    static if(0)
+        alias negascout = memoize!negascout_;
+    else
+        alias negascout = negascout_;
+
+    public static int negascout_(IReversiBoard rb, int alpha, in int beta, in bool pass, in int depth)
+    {
+        int max_val = int.min;
+
+        static if(HASH)
+        {
+            if(const p = getHash(rb, depth, alpha, beta))
+                return *p;
+
+            scope(success)
+                if(depth >  DEPTH - HASH_DEPTH)
+                    setHash(rb, max_val, depth, alpha, beta);
+        }
+
+        if(depth <= 0)
+            return eval(rb);
+
+        bool is_put = false;
+
+        foreach(x; 0..rb.fieldWidth)
+        {
+            foreach(y; 0..rb.fieldWidth)
+            {
+                try rb.putStoneWithSave(x, y); //盤面展開
+                catch(CannotPutException e)
+                    continue;
+                catch(Exception e)
+                    assert(0);
+
+                if(is_put)
+                {
+                    //NullWindowSearch
+                    int val = -negascout(rb, -alpha-1, -alpha, false, depth-1);
+
+                    if(val >= beta)
+                    {
+                        rb.restore;
+                        return val; //枝刈
+                    }
+
+                    if(val > alpha) //通常探索
+                    {
+                        alpha = val;
+
+                        val = -negascout(rb, -beta, -alpha, false, depth-1);
+
+                        if(val >= beta)
+                        {
+                            rb.restore;
+                            return val; //枝刈
+                        }
+                        if(val > alpha)
+                            alpha = val;
+                    }
+
+                    rb.restore;
+
+                    if(val > max_val)
+                        max_val = val;
+                }
+                else
+                {
+                    is_put = true;
+
+                    max_val = -negascout(rb, -beta, -alpha, false, depth-1);
+
+                    rb.restore;
+
+                    if(max_val >= beta)
+                        return max_val; //枝刈
+
+                    if(max_val > alpha)
+                        alpha = max_val;
+                }
+            }
+        }
+
+        if(is_put)
+        {
+            return max_val;
+        }
+        else //置けない
+        {
+            if(pass)
+            {
+                return eval(rb);
+            }
+            else
+            {
+                rb.pass();
+                max_val = -negascout(rb, -beta, -alpha, true, depth-1);
+                rb.pass();
+                return max_val;
+            }
+        }
+    }
+
+version(none){
+    int negascout(bool print = false)(IReversiBoard rb, int alpha, in int beta, in bool pass, in int depth)
+    {
+
+        if(depth <= 0)
+        {
+            //stderr.writeln("v");
+            return eval(rb);
+        }
+
+        //指手取得
+        const ps = rb.getCanPutStone();
+        //stderr.writeln(depth, " ",  rb.turn);
+        //stderr.writefln("%(%s\n%)",ps);
+        //HashValue hv_tmp;
+
+        if(ps.length > 0)
+        {
+            rb.putStoneWithSave(ps[0].x, ps[0].y);//盤面展開
+
+            int max_val = -negascout!true(rb, -beta, -alpha, false, depth-1);
+
+            rb.restore;
+
+            if(max_val >= beta)
+                return max_val; //枝刈
+
+            if(max_val > alpha)
+                alpha = max_val;
+
+            foreach(p ; ps[1..$])
+            {
+                rb.putStoneWithSave(p.x, p.y);
+
+                int val = -negascout(rb, -alpha-1, -alpha, false, depth-1);//NullWindowSearch
+
+                if(val >= beta)
+                {
+                    rb.restore;
+                    return val;//枝刈
+                }
+
+                if(val > alpha)//通常探索
+                {
+                    alpha = val;
+
+                    val = -negascout!true(rb, -beta, -alpha, false, depth-1);
+
+                    if(val >= beta)
+                    {
+                        rb.restore;
+                        return val;//枝刈
+                    }
+                    if(val > alpha)
+                        alpha = val;
+                }
+
+                if(val > max_val)
+                    max_val = val;
+
+                rb.restore;
+            }
+            return max_val;
+        }
+        else //置けない
+        {
+            if(pass)
+            {
+                return eval(rb);
+            }
+            else
+            {
+                rb.pass();
+                immutable val = -negascout!true(rb, -beta, -alpha, true, depth-1);
+                rb.pass();
+                return val;
+            }
+        }
+    }
+}
+}
+

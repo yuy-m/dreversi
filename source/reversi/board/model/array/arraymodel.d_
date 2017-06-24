@@ -1,0 +1,306 @@
+module reversi.board.impl.arraymodel;
+
+import reversi.board.impl.arraymodelbase;
+import reversi.board.impl.stone;
+
+import std.stdio;
+import std.conv : to;
+import std.typecons;
+
+
+class ArrayReversiModel : ArrayReversiModelBase
+{
+private:
+    Tuple!(int, int, Stone)[][] diffs;
+
+    struct Lines
+    {
+        Stone[] ver;
+        Stone[] hor;
+        Stone[] diag;
+        Stone[] diag_r;
+    }
+
+    Lines getLines(in int x, in int y) const
+    {
+        Lines ret;
+        foreach(i; 0..N)
+        {
+            ret.ver ~= this[x, i];
+            ret.hor ~= this[i, y];
+        }
+
+        if(x < y)
+            foreach(i; 0..N+x-y)
+                ret.diag ~= this[i, i + y - x];
+        else
+            foreach(i; 0..N+y-x)
+                ret.diag ~= this[i + x - y, i];
+
+        if(x + y < N - 1)
+            foreach(i; 0..x+y +1)
+                ret.diag_r ~= this[i, -i + x + y];
+        else
+            foreach_reverse(i; x+y-N+1..N)
+                ret.diag_r ~= this[-i + x + y, i];
+
+        return ret;
+    }
+
+public:
+
+    override bool canPutStone(in int x, in int y) const
+    {
+        if(!this[x, y].isNone)
+            return false;
+
+        const lines = getLines(x, y);
+
+        if(Memo[lines.ver, turn, y])
+            return true;
+        if(Memo[lines.hor, turn, x])
+            return true;
+        if(Memo[lines.diag, turn, (x < y) ? x: y])
+            return true;
+        if(Memo[lines.diag_r, turn, (x+y < N-1) ? x: N-1-y])
+            return true;
+        return false;
+    }
+
+    override int countObtainStoneWhenPut(in int x, in int y) const
+    {
+        assert(0, "Not supported");
+    }
+
+    override void putStone(in int x, in int y)
+    {
+        putStone!false(x, y);
+    }
+    override void putStoneWithSave(in int x, in int y)
+    {
+        putStone!true(x, y);
+        writeln(this);
+    }
+
+    private void putStone(bool save)(int x, int y)
+    {
+        const lines = getLines(x, y);
+        bool is_put = false;
+
+        static if(save)
+            ++diffs.length;
+
+        if(const p = Memo[lines.ver, turn, y])
+        {
+            is_put = true;
+            foreach(i; 0..N)
+            {
+                static if(save)
+                    diffs[$-1] ~= tuple(x, i, this[x, i]);
+                this[x, i] = (*p)[i];
+            }
+        }
+
+        if(const p = Memo[lines.hor, turn, x])
+        {
+            is_put = true;
+            foreach(i; 0..N)
+            {
+                static if(save)
+                    diffs[$-1] ~= tuple(i, y, this[i, y]);
+                this[i, y] = (*p)[i];
+            }
+        }
+
+        if(const p = Memo[lines.diag, turn, (x < y) ? x: y])
+        {
+            is_put = true;
+            if(x < y)
+                foreach(i; 0..N+x-y)
+                {
+                    static if(save)
+                        diffs[$-1] ~= tuple(i, i + y - x, this[i, i + y - x]);
+                    this[i, i + y - x] = (*p)[i];
+                }
+            else
+                foreach(i; 0..N+y-x)
+                {
+                    static if(save)
+                        diffs[$-1] ~= tuple(i + x - y, i, this[i + x - y, i]);
+                    this[i + x - y, i] = (*p)[i];
+                }
+        }
+
+        if(const p = Memo[lines.diag_r, turn, (x+y < N-1) ? x: N-1-y])
+        {
+            is_put = true;
+            if(x + y < N - 1)
+                foreach(i; 0..x+y +1)
+                {
+                    static if(save)
+                        diffs[$-1] ~= tuple(i, -i + x + y, this[i, -i + x + y]);
+                    this[i, -i + x + y] = (*p)[i];
+                }
+            else
+                foreach_reverse(i; x+y-N+1..N)
+                {
+                    static if(save)
+                        diffs[$-1] ~= tuple(-i + x + y, i, this[-i + x + y, i]);
+                    this[-i + x + y, i] = (*p)[i];
+                }
+        }
+
+
+        if(!is_put)
+            throw new Exception("cannot put at ("~x.to!string~","~y.to!string~")");
+
+        pass();
+    }
+
+    override void restore()
+    {
+        if(diffs.length == 0)
+            throw new Exception("pop error");
+
+        foreach(d; diffs[$-1])
+            this[d[0], d[1]] = d[2];
+
+        diffs = diffs[0..$-1];
+
+        pass();
+    }
+
+    /+import reversi.board.iboard;
+    IReversiBoard dup()
+    {
+        auto rm = new ArrayReversiModel();
+        foreach(x; 0..N)
+            foreach(y; 0..N)
+                rm[x, y] = this[x, y];
+
+        foreach(i; 0..N)
+            rm.diff[i][] = this.diff[i][];
+
+        return rm;
+    }+/
+}
+
+class Slice
+{
+    enum Dir { Hor, Ver, Diag, Diag_r }
+
+    Dir dir;
+
+
+
+    this(in Dir dir)
+    {
+        this.dir = dir;
+    }
+}
+
+
+private class Memo
+{
+public:
+    static const(Stone[]*) opIndex(in Stone[] line, in Stone s, in int x)
+    {
+        if(const p1 = line in memo_)
+            if(const p2 = s in *p1)
+                if(const p3 = x in *p2)
+                    return p3;
+
+        return calcMemoPut(line, s, x);
+    }
+
+private:
+    static Stone[]
+        [int][Stone][immutable Stone[]]
+            memo_;
+
+    version(none){
+        this()
+        {
+            foreach(immutable n; 3..N+1)
+                calcMemo1(n);
+        }
+
+        void calcMemo1(in int n)
+        {
+            auto line = new Stone[n];
+            line[] = Stone.none;
+            calcMemo2(n, 0, line);
+        }
+
+        void calcMemo2(in int n, in int i, Stone[] line)
+        {
+            if(i == n)
+            {
+                calcMemoPut(n, line);
+            }
+            else
+            {
+                foreach(s; eachStone)
+                {
+                    line[i] = s;
+                    calcMemo2(n, i + 1, line);
+                }
+            }
+        }
+    }
+
+    static const(Stone[]*) calcMemoPut(in Stone[] line, in Stone stone, in int x)
+    {
+        if(line[x] != Stone.none)
+            return null;
+
+        immutable n = line.length;
+
+        int start = -1, end = -1;
+        bool changed = false;
+
+        foreach(i, s; line[x+1..n])
+        {
+            if(s.isNone)
+            {
+                break;
+            }
+            else if(s == stone)
+            {
+                if(i > 0)
+                {
+                    end = x + 1 + i;
+                    changed = true;
+                }
+                break;
+            }
+        }
+
+        foreach_reverse(i, s; line[0..x])
+        {
+            if(s.isNone)
+            {
+                break;
+            }
+            else if(s == stone)
+            {
+                if(i < x - 1)
+                {
+                    start = i;
+                    changed = true;
+                }
+                break;
+            }
+        }
+
+        if(changed)
+        {
+            Stone[] l = line.dup;
+            l[(start == -1 ? x: start)..(end == -1 ? x: end)+1] = stone;
+            return &(memo_[line.idup][stone][x] = l);
+        }
+
+        return null;
+    }
+}
+

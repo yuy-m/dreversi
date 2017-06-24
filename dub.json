@@ -1,0 +1,12 @@
+{
+    "name": "reversi",
+    "description": "A Reversi Game",
+    "homepage": "",
+    "copyright": "Copyright © 2017, Saki Takatsuki",
+    "authors": [
+        "Saki Takatsuki"
+    ],
+    "dependencies": {
+        "dlangui": ">0.6.11"
+    }
+}

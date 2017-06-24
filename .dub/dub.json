@@ -1,0 +1,14 @@
+{
+	"dub": {
+		"lastUpgrade": "2017-06-24T23:08:21.5814297",
+		"cachedUpgrades": {
+			"derelict-util": "2.0.6",
+			"derelict-gl3": "1.0.23",
+			"derelict-ft": "1.1.3",
+			"derelict-sdl2": "2.0.2",
+			"dsfml": "2.1.1",
+			"dlangui": "0.9.77",
+			"x11": "1.0.16"
+		}
+	}
+}
