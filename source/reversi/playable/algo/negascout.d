@@ -7,28 +7,42 @@ import reversi.board.model.bit.bitmodel;
 import reversi.playable.utility;
 import reversi.playable.evaluate;
 
-immutable HASH = 0;//false;
+immutable HASH1 = 0;
+immutable HASH2 = 0;
 
-class NegaScout(int DEPTH = 3, int HASH_DEPTH = DEPTH) : IPlayer
+class NegaScout(int DEPTH = 3, int HASH_DEPTH = DEPTH - 3) : IPlayer
 if(DEPTH >= HASH_DEPTH)
 {
-    override bool getMove(in IReversiBoard rb, out int x, out int y)
+    override Move getMove(in IReversiBoard rb)
     {
+        int x, y;
         stdout.flush;
-            return cpu(rb, x, y, DEPTH, 10);
+        bool not_pass = cpu(rb, x, y, DEPTH, 10);
+        return not_pass? new Move(x, y): null;
     }
 
 private:
 
+    static int cnt, cnt2;
     static bool cpu(in IReversiBoard rb, out int x, out int y, in int depth, in int last_depth)
     {
         import std.algorithm : min;
+        cnt = 0;
+        cnt2 = 0;
+
         immutable not_pass = {
             if(auto rbb = cast(BitReversiModel)rb)
                 return iddfs(rbb, x, y, min(depth, rb.fieldSize - rb.countAll));
             else
                 return iddfs(cast()rb, x, y, min(depth, rb.fieldSize - rb.countAll));
         }();
+
+
+        stderr.write(cnt,",",cnt2);
+        static if(HASH2)
+            stderr.writeln(",",hash.length);
+        else
+            stderr.writeln;
 
         return not_pass && rb.canPutStone(x, y);
     }
@@ -95,7 +109,7 @@ private:
         return true;
     }
 
-    static if(HASH)
+    static if(HASH1)
     {
         import std.typecons;
         alias hash_t = Tuple!(int, int); // alpha, beta
@@ -130,6 +144,7 @@ private:
     else
         alias negascout = negascout_;
 
+
     public static int negascout_(IReversiBoard rb, int alpha, int beta, in bool pass, in int depth)
     {
         if(depth <= 0)
@@ -137,7 +152,7 @@ private:
 
         int max_val = int.min;
 
-        static if(HASH)
+        static if(HASH1)
         {
             import std.algorithm;
             int upper;
@@ -259,7 +274,6 @@ private:
         }
     }
 
-
     static bool iddfs(BitReversiModel rb, out int x, out int y, in int max_depth)
     {
         auto pvs = getCanPutPosVal(rb);
@@ -279,7 +293,7 @@ private:
                 assert(0, "Ahah?");
             }
 
-            int max_val = -negascout(rb.myField, rb.yourField, int.min, int.max, false, depth-1);
+            int max_val = -negascout1(rb.myField, rb.yourField, int.min, int.max, false, depth-1);
             rb.restore;
 
             x = pvs[0].x;
@@ -296,13 +310,13 @@ private:
                     stderr.writeln(e);
                     assert(0, "Uhah?");
                 }
-                p.val = -negascout(rb.myField, rb.yourField, -alpha-1, -alpha, false, depth-1);//NullWindowSearch
+                p.val = -negascout1(rb.myField, rb.yourField, -alpha-1, -alpha, false, depth-1);//NullWindowSearch
 
                 if(p.val > alpha) //通常探索
                 {
                     alpha = p.val;
 
-                    p.val = -negascout(rb.myField, rb.yourField, int.min, -alpha, false, depth-1);
+                    p.val = -negascout1(rb.myField, rb.yourField, int.min, -alpha, false, depth-1);
 
                     if(p.val > alpha)
                         alpha = p.val;
@@ -322,27 +336,58 @@ private:
         return true;
     }
 
-    public static int negascout_(in ulong me, in ulong you, int alpha, int beta, in bool pass, in int depth)
+    static if(HASH2)
     {
+        import std.typecons;
+        alias hash_t = Tuple!(int, int); // alpha, beta
+        static  hash_t[ulong][int] hash = null;
+
+        static const(hash_t*) getHash(in ulong me, in ulong you, in int depth, in int alpha, in int beta)
+        {
+            if(const p_ = depth in hash)
+                return (me ^ you) in *p_;
+            return null;
+        }
+
+        static void setHash(in ulong me, in ulong you, in int depth, in int alpha, in int beta)
+        {
+            hash[depth][me ^ you] = Tuple!(int, int)(alpha, beta);
+            /+if(auto p_ = depth in hash)
+            {
+                if(rb !in *p_)
+                    assert(0);
+                else
+                    (*p_)[rb] = tuple(alpha, beta);
+            }
+            else
+                hash[depth][rb] = tuple(alpha, beta);
+            +/
+        }
+    }
+
+    public static int negascout1(in ulong me, in ulong you, int alpha, int beta, in bool pass, in int depth)
+    {
+        int max_val = int.min;
+
         if(depth <= 0)
             return eval(me, you);
 
-        int max_val = int.min;
-
-        static if(HASH)
+        static if(HASH2)
         {
             import std.algorithm;
             int upper;
             int lower;
-            if(const p = getHash(rb, depth, alpha, beta))
+            if(const p = getHash(me, you, depth, alpha, beta))
             {
+                // lower upper
+                // alpha beta
                 lower = (*p)[0];
                 upper = (*p)[1];
                 if(lower >= beta)
                 {
                     return lower;
                 }
-                if(upper <= alpha || lower == upper)
+                if(upper <= alpha || upper == lower)
                 {
                     return upper;
                 }
@@ -352,8 +397,8 @@ private:
             }
             else
             {
-                lower = typeof(lower).min;
-                upper = typeof(upper).max;
+                lower = int.min;
+                upper = int.max;
             }
 
             if(depth >  DEPTH - HASH_DEPTH)
@@ -361,15 +406,16 @@ private:
                 scope(success)
                 {
                     if(max_val <= alpha)
-                        setHash(rb, depth, lower, max_val);
+                        setHash(me, you, depth, lower, max_val);
                     else if(max_val >= beta)
-                        setHash(rb, depth, max_val, upper);
+                        setHash(me, you, depth, max_val, upper);
                     else
-                        setHash(rb, depth, max_val, max_val);
+                        setHash(me, you, depth, max_val, max_val);
                 }
             }
         }
 
+        ++cnt;
 
         bool is_put = false;
 
@@ -387,7 +433,7 @@ private:
                 if(is_put)
                 {
                     //NullWindowSearch
-                    int val = -negascout(new_you, new_me, -alpha-1, -alpha, false, depth-1);
+                    int val = -negascout1(new_you, new_me, -alpha-1, -alpha, false, depth-1);
 
                     if(val >= beta)
                     {
@@ -398,7 +444,7 @@ private:
                     {
                         alpha = val;
 
-                        val = -negascout(new_you, new_me, -beta, -alpha, false, depth-1);
+                        val = -negascout1(new_you, new_me, -beta, -alpha, false, depth-1);
 
                         if(val >= beta)
                         {
@@ -415,7 +461,7 @@ private:
                 {
                     is_put = true;
 
-                    max_val = -negascout(new_you, new_me, -beta, -alpha, false, depth-1);
+                    max_val = -negascout1(new_you, new_me, -beta, -alpha, false, depth-1);
 
                     if(max_val >= beta)
                         return max_val; //枝刈
@@ -438,7 +484,7 @@ private:
             }
             else
             {
-                max_val = -negascout(you, me, -beta, -alpha, true, depth-1);
+                max_val = -negascout1(you, me, -beta, -alpha, true, depth-1);
                 return max_val;
             }
         }

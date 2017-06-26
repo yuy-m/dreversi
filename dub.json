@@ -1,7 +1,7 @@
 {
     "name": "reversi",
     "description": "A Reversi Game",
-    "homepage": "",
+    "license": "Boost",
     "copyright": "Copyright © 2017, Saki Takatsuki",
     "authors": [
         "Saki Takatsuki"

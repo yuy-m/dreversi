@@ -1,10 +1,11 @@
 module reversi.playable.iplayer;
 
 public import reversi.board.iboard;
+public import reversi.playable.move;
 
 interface IPlayer
 {
-    bool getMove(in IReversiBoard rb, out int x, out int y)
+    Move getMove(in IReversiBoard rb)
     /+out(r){
         if(r)
         {

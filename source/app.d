@@ -12,41 +12,111 @@ mixin APP_ENTRY_POINT;
 extern(C) int UIAppMain(string[] args)
 {
     auto g = new Game();
-    return g.mainProc(Stone.black);
+    return g.start();
 }
 
 class Game
 {
     Window window;
     CanvasWidget canvas;
+    HorizontalLayout layout1;
+    Button reset_btn;
+    Button pass_btn;
 
     IReversiBoard rb;
-    IPlayer cpu = negascoutPlayer!10;
-    Stone plr_color;
+    IPlayer black, white;
+    IPlayer now_player;
 
     StopWatch sw;
 
-    int turn;
+    int turn_cnt;
     int offset_x, offset_y;
     immutable cell_width = 30;
-
-    int clicked_x = -1, clicked_y = -1;
 
     import std.typecons;
     Tuple!(int, int)[] toFlipStones;
 
-    auto mainProc(in Stone s)
+    void reset(in dstring str)
     {
-        rb = createReversi;
-        turn = 1;
-        plr_color = s;
+        if(rb is null)
+            rb = createReversi;
 
+        canvas.enabled = false;
+        reset_btn.enabled = false;
+        pass_btn.enabled = false;
+        auto res = Platform.instance.createWindow("A Reversi Game by Dlang", window);
+        auto layout = new VerticalLayout();
+        res.mainWidget = layout;
+        res.onClose = delegate()
+        {
+            canvas.enabled = true;
+            reset_btn.enabled = true;
+            pass_btn.enabled = true;
+            now_player = white;
+            rb.reset;
+            turn_cnt = 0;
+            nextTurn;
+        };
+
+        auto text = (new TextWidget)
+                   .text = str;
+        layout.addChild(text);
+
+        auto reset_btn1 = new Button;
+        reset_btn1.text = "black Human, white Human";
+        reset_btn1.addOnClickListener(delegate bool(Widget src)
+        {
+            black = null;
+            white = null;
+            res.close;
+            return true;
+        });
+        layout.addChild(reset_btn1);
+
+        auto reset_btn2 = new Button;
+        reset_btn2.text = "black Human, white Computer";
+        reset_btn2.addOnClickListener(delegate bool(Widget src)
+        {
+            black = null;
+            white = negascoutPlayer!9;
+            res.close;
+            return true;
+        });
+        layout.addChild(reset_btn2);
+
+        auto reset_btn3 = new Button;
+        reset_btn3.text = "black Computer, white Human";
+        reset_btn3.addOnClickListener(delegate bool(Widget src)
+        {
+            black = negascoutPlayer!9;
+            white = null;
+            res.close;
+            return true;
+        });
+        layout.addChild(reset_btn3);
+
+        /+auto reset_btn4 = new Button;
+        reset_btn4.text = "black Computer, white Computer";
+        reset_btn4.addOnClickListener(delegate bool(Widget src)
+        {
+            black = negascoutPlayer!10;
+            white = negascoutPlayer!10;
+            res.close;
+            return true;
+        });
+        layout.addChild(reset_btn4); +/
+
+        res.show;
+    }
+
+    auto start()
+    {
         Platform.instance.uiLanguage="en";
         Platform.instance.uiTheme="theme_default";
 
         window = Platform.instance.createWindow("A Reversi Game by Dlang", null);
 
-        auto layout1 = new HorizontalLayout();
+        layout1 = new HorizontalLayout;
         layout1.layoutWidth(FILL_PARENT)
                .layoutHeight(FILL_PARENT);
         window.mainWidget = layout1;
@@ -64,21 +134,21 @@ class Game
                .alignment(20);
         layout1.addChild(layout2);
 
-        auto reset_btn = new Button;
+        reset_btn = new Button;
         reset_btn.text = "reset";
         reset_btn.addOnClickListener(delegate bool(Widget src)
         {
-            rb.reset;
-            turn = 1;
+            reset("restart");
             return true;
         });
         layout2.addChild(reset_btn);
 
-        auto pass_btn = new Button;
+        pass_btn = new Button;
         pass_btn.text = "pass";
         pass_btn.addOnClickListener(delegate bool(Widget src)
         {
-            if(rb.turn == plr_color)
+            stderr.writeln("click");
+            if(now_player is null)
             {
                 rb.pass;
                 nextTurn;
@@ -88,6 +158,7 @@ class Game
         layout2.addChild(pass_btn);
 
         window.show;
+        reset("");
         return Platform.instance.enterMessageLoop();
     }
 
@@ -137,36 +208,40 @@ class Game
                         Rect(2,2,2,2), 0xFFFFFFFF
                     );
                 }
-                else if(rb.canPutStone(x, y))
+                else if(now_player is null && rb.canPutStone(x, y))
                 {
-                    buf.drawFrame(
+                    buf.fillRect(
                         Rect(
-                            offset_x + cell_width * x + 5, offset_y + cell_width * y + 5,
-                            offset_x + cell_width * (x + 1) - 3,
-                            offset_y + cell_width * (y + 1) - 3
-                        ), 0x00FF00,
-                        Rect(2,2,2,2), 0xFFFFFF
+                            offset_x + cell_width * x + 10,
+                            offset_y + cell_width * y + 10,
+                            offset_x + cell_width * (x + 1) - 8,
+                            offset_y + cell_width * (y + 1) - 8
+                        ), 0x00FF00
                     );
                 }
             }
         }
 
-        foreach(s; toFlipStones)
+        if(now_player is null)
         {
-            buf.drawFrame(
-                Rect(
-                    offset_x + cell_width * s[0] + 5, offset_y + cell_width * s[1] + 5,
-                    offset_x + cell_width * (s[0] + 1) - 3,
-                    offset_y + cell_width * (s[1] + 1) - 3
-                ), 0x00FF00,
-                Rect(2,2,2,2), 0x00FF00
-            );
+            foreach(s; toFlipStones)
+            {
+                buf.drawFrame(
+                    Rect(
+                        offset_x + cell_width * s[0] + 5,
+                        offset_y + cell_width * s[1] + 5,
+                        offset_x + cell_width * (s[0] + 1) - 3,
+                        offset_y + cell_width * (s[1] + 1) - 3
+                    ), 0x00FF00,
+                    Rect(2,2,2,2), rb.turn.isBlack? 0x000000: 0xFFFFFF
+                );
+            }
         }
 
         import std.format;
         canvas.font.drawText(buf,
             offset_x, offset_y + cell_width * N + 10,
-            "turn %2s, %s"d.format(turn, rb.turn), 0x000000
+            "turn %2s, %s"d.format(turn_cnt, rb.turn), 0x000000
         );
         canvas.font.drawText(buf,
             offset_x, offset_y + cell_width * N + 25,
@@ -180,16 +255,14 @@ class Game
         );
         canvas.font.drawText(buf,
             offset_x, offset_y + cell_width * N + 55,
-            "%s [ms]"d.format(sw.peek().msecs), 0x000000
+            "%s [ms]"d.format(time), 0x000000
         );
     }
 
     bool mouseEvent(Widget src, MouseEvent e)
     {
-        import reversi.playable.utility;
-
         toFlipStones = null;
-        if(rb.turn != plr_color)
+        if(now_player !is null)
             return true;
 
         int get(in int offset, in int p)
@@ -197,11 +270,14 @@ class Game
             import std.math;
             return cast(int)floor((cast(double)p - offset) / cell_width);
         }
-        clicked_x = get(offset_x, e.x);
-        clicked_y = get(offset_y, e.y);
+        immutable clicked_x = get(offset_x, e.x);
+        immutable clicked_y = get(offset_y, e.y);
 
         toFlipStones = rb.getToFlipStones(clicked_x, clicked_y);
-        canvas.invalidate();
+        if(toFlipStones.length > 0)
+            toFlipStones ~= Tuple!(int, int)(clicked_x, clicked_y);
+
+        invalidate();
 
         if(e.action == MouseAction.ButtonUp)
         {
@@ -211,6 +287,7 @@ class Game
             if(rb.canPutStone(clicked_x, clicked_y))
             {
                 sw.stop;
+                time = sw.peek().msecs;
                 rb.putStone(clicked_x, clicked_y);
                 stderr.writeln("put");
                 nextTurn;
@@ -229,78 +306,168 @@ class Game
         if(rb.isFinished)
         {
             auto res = Platform.instance.createWindow("Result", window);
-            auto t = new TextWidget();
+            dstring str;
             final switch(rb.getPredominance)
             {
             case Stone.black:
-                stderr.writeln("Black Win.");
-                t.text = "Black Win.";
+                str = "Black Win.";
                 break;
             case Stone.white:
-                stderr.writeln("White Win.");
-                t.text = "White Win.";
+                str = "White Win.";
                 break;
             case Stone.none:
-                stderr.writeln("Draw.");
-                t.text = "Draw.";
+                str = "Draw.";
                 break;
             }
-            res.mainWidget = t;
-            res.show;
+            stderr.writeln(str);
+            reset(str);
         }
     }
 
+    void invalidate()
+    {
+        window.invalidate();
+    }
+
+    long time;
+    bool thinking = false;
+
     void nextTurn()
+    {
+        if(thinking)
+            return;
+
+        changeTurn();
+        if(now_player)
+        {
+            import std.parallelism;
+            stderr.write("computer thinking...");
+            thinking = true;
+
+            task({
+                sw.reset;
+                sw.start;
+                while(now_player !is null && !rb.isFinished)
+                {
+                    auto m = now_player.getMove(rb);
+                    sw.stop;
+                    time = sw.peek.msecs;
+
+                    if(m)
+                    {
+                        stderr.writeln("bbb");
+                        rb.putStone(m.x, m.y);
+                        stderr.writefln("put (%s,%s)", m.x, m.y);
+                    }
+                    else
+                    {
+                        rb.pass;
+                        stderr.writeln("pass");
+                    }
+                    stderr.writeln("aaa");
+
+                    changeTurn();
+                    sw.reset;
+                    sw.start;
+                    thinking = false;
+                }
+            }).executeInNewThread;
+        }
+    }
+
+    void changeTurn()
     {
         stderr.writeln("next");
         toFlipStones = null;
-        ++turn;
-        stderr.writeln(rb);
-        canvas.invalidate();
-        check();
+        pass_btn.enabled = now_player !is null;
 
+        ++turn_cnt;
+        now_player = rb.turn.isBlack? black: white;
+
+        stderr.writeln(rb);
+        invalidate();
+
+        check();
+    }
+
+    /+void think()
+    {
+        stderr.write("computer thinking...");
+
+        StopWatch s;
         int x, y;
-        sw.reset;
-        sw.start;
-        if(cpu.getMove(rb, x, y))
+        s.start;
+        immutable np = now_player.getMove(rb, x, y);
+        s.stop;
+        time = s.peek().msecs;
+        if(np)
         {
-            sw.stop;
             rb.putStone(x, y);
             stderr.writefln("put (%s,%s)", x, y);
         }
         else
         {
-            sw.stop;
             rb.pass;
             stderr.writeln("pass");
         }
-        ++turn;
-        stderr.writeln(rb);
-        canvas.invalidate();
-        check();
+        changeTurn();
+        sw.reset;
+        sw.start;
+    }+/
+
+    /+void nextTurn()
+    {
+        changeTurn();
+
+        while(now_player)
+        {
+            int x, y;
+            stderr.write("computer thinking...");
+            sw.reset;
+            sw.start;
+            immutable np = now_player.getMove(rb, x, y);
+            sw.stop;
+            time = sw.peek().msecs;
+            if(np)
+            {
+                rb.putStone(x, y);
+                stderr.writefln("put (%s,%s)", x, y);
+            }
+            else
+            {
+                rb.pass;
+                stderr.writeln("pass");
+            }
+            changeTurn();
+        }
 
         sw.reset;
         sw.start;
-    }
+    }// +/
+
 }
 
 
 
-/+import std.stdio;
+// +/
 
-void main()
+/+void main()
 {
-    play(randomPlayer, negascoutPlayer!10);
+    import reversi.basic;
+    //play(randomPlayer, negascoutPlayer!10);
 
-    version(none){
+    version(all)
+    {
         int[Stone] cnt;
-        foreach(i; 0..30)
+        foreach(i; 0..40)
         {
             stderr.writef("%3d...", i);
-            ++cnt[play!false(negascoutPlayer!7, randomPlayer)];
+            ++cnt[play!false(negascoutPlayer!6, randomPlayer)];
             stderr.writeln("fin.");
         }
 
         writefln("%(%s %s\n%)", cnt);
     }
-}+/
+} // +/
+
+

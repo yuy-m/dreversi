@@ -14,14 +14,14 @@ class PlayerManager
         this.white = white;
     }
 
-    bool getMove(in IReversiBoard rb, out int x, out int y)
+    Move getMove(in IReversiBoard rb)
     {
         final switch(rb.turn)
         {
         case Stone.black:
-            return black.getMove(rb, x, y);
+            return black.getMove(rb);
         case Stone.white:
-            return white.getMove(rb, x, y);
+            return white.getMove(rb);
         case Stone.none:
             assert(0);
         }

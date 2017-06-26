@@ -1,6 +1,6 @@
 {
 	"dub": {
-		"lastUpgrade": "2017-06-24T23:08:21.5814297",
+		"lastUpgrade": "2017-06-25T23:11:43.4279548",
 		"cachedUpgrades": {
 			"derelict-util": "2.0.6",
 			"derelict-gl3": "1.0.23",

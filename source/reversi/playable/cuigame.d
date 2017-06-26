@@ -30,16 +30,16 @@ Stone play(bool print = true)(IPlayer black, IPlayer white)
         StopWatch sw;
 
         sw.start();
-        immutable notpass = pm.getMove(rb, x, y);
+        immutable move = pm.getMove(rb, x, y);
         sw.stop();
 
-        if(notpass)
+        if(move !is null)
         {
-            rb.putStone(x, y);
+            rb.putStone(move.x, move.y);
             static if(print)
             {
                 write(rb);
-                writefln("put at (%s, %s).", x + 1, y + 1);
+                writefln("put at (%s, %s).", move.x + 1, move.y + 1);
             }
         }
         else

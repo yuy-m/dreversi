@@ -8,22 +8,22 @@ import std.conv : to, ConvException;
 
 class Human : IPlayer
 {
-    override bool getMove(in IReversiBoard rb, out int x, out int y)
+    override Move getMove(in IReversiBoard rb)
     {
         candidates(rb);
 
         while(true)
         {
-            x = input(rb, "x");
+            int x = input(rb, "x");
             if(x == -1)
-                return false;
+                return null;
 
-            y = input(rb, "y");
+            int y = input(rb, "y");
             if(y == -1)
-                return false;
+                return null;
 
             if(rb.canPutStone(x, y))
-                return true;
+                return new Move(x, y);
 
             writeln("Cannot put there.");
         }
