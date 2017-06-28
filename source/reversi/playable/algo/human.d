@@ -31,7 +31,7 @@ class Human : IPlayer
         assert(0);
     }
 
-    void candidates(in IReversiBoard rb) const
+    static void candidates(in IReversiBoard rb)
     {
         writeln("candidates:");
         const ps = getCanPutStone(rb);
@@ -51,28 +51,28 @@ class Human : IPlayer
         }
     }
 
-    int input(in IReversiBoard rb, in string str)
+    static int input(in IReversiBoard rb, in string str)
+    {
+        while(true)
         {
-            while(true)
-            {
-                write(str, " = ");
-                stdout.flush;
-                immutable s = readln.chomp;
-                if(s == "pass" || s == "p")
-                    return -1;
-                else if(s == "quit" || s == "q")
-                    throw new Exception("Quit Reversi Game.");
+            write(str, " = ");
+            stdout.flush;
+            immutable s = readln.chomp;
+            if(s == "pass" || s == "p")
+                return -1;
+            else if(s == "quit" || s == "q")
+                throw new Exception("Quit Reversi Game.");
 
-                try{
-                    immutable n = s.to!int - 1;
-                    if(rb.isInField(n))
-                        return n;
+            try{
+                immutable n = s.to!int - 1;
+                if(rb.isInField(n))
+                    return n;
 
-                    writeln("Out of field.");
+                writeln("Out of field.");
 
-                } catch(ConvException e) {
-                    writeln("Input number.");
-                }
+            } catch(ConvException e) {
+                writeln("Input number.");
             }
         }
+    }
 }

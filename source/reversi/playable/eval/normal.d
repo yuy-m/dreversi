@@ -468,10 +468,10 @@ int cornerVal(
     {
         val -= point[0][0];
         if(isMyStone(p2_x, p2_y))
-            val -= point[1][0];
+            val += point[1][0];
 
         if(isMyStone(p3_x, p3_y))
-            val -= point[1][0];
+            val += point[1][0];
 
         if(isMyStone(p4_x, p4_y))
             val += point[1][1];

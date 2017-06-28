@@ -17,7 +17,7 @@ if(DEPTH >= HASH_DEPTH)
     {
         int x, y;
         stdout.flush;
-        bool not_pass = cpu(rb, x, y, DEPTH, 10);
+        bool not_pass = cpu((cast()rb).dup, x, y, DEPTH, 10);
         return not_pass? new Move(x, y): null;
     }
 
@@ -37,12 +37,6 @@ private:
                 return iddfs(cast()rb, x, y, min(depth, rb.fieldSize - rb.countAll));
         }();
 
-
-        stderr.write(cnt,",",cnt2);
-        static if(HASH2)
-            stderr.writeln(",",hash.length);
-        else
-            stderr.writeln;
 
         return not_pass && rb.canPutStone(x, y);
     }
