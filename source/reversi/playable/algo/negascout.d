@@ -10,36 +10,32 @@ import reversi.playable.evaluate;
 immutable HASH1 = 0;
 immutable HASH2 = 0;
 
-class NegaScout(int DEPTH = 3, int HASH_DEPTH = DEPTH - 3) : IPlayer
+class NegaScout(
+    int DEPTH = 3,
+    int LAST_DEPTH = DEPTH * 3 / 2,
+    int HASH_DEPTH = DEPTH - 3) : IPlayer
 if(DEPTH >= HASH_DEPTH)
 {
     override Move getMove(in IReversiBoard rb)
     {
+        import std.algorithm : min;
+
         int x, y;
-        stdout.flush;
-        bool not_pass = cpu((cast()rb).dup, x, y, DEPTH, 10);
-        return not_pass? new Move(x, y): null;
+        immutable rest = rb.fieldSize - rb.countAll;
+        immutable d = (rest < LAST_DEPTH)? min(DEPTH, rest): rest;
+
+        auto rb_ = (cast()rb).dup;
+
+        immutable not_pass = {
+            if(auto rbb = cast(BitReversiModel)rb_)
+                return iddfsb(rbb, x, y, d);
+            else
+                return iddfs(rb_, x, y, d);
+        }();
+        return not_pass && rb.canPutStone(x, y)? new Move(x, y): null;
     }
 
 private:
-
-    static int cnt, cnt2;
-    static bool cpu(in IReversiBoard rb, out int x, out int y, in int depth, in int last_depth)
-    {
-        import std.algorithm : min;
-        cnt = 0;
-        cnt2 = 0;
-
-        immutable not_pass = {
-            if(auto rbb = cast(BitReversiModel)rb)
-                return iddfs(rbb, x, y, min(depth, rb.fieldSize - rb.countAll));
-            else
-                return iddfs(cast()rb, x, y, min(depth, rb.fieldSize - rb.countAll));
-        }();
-
-
-        return not_pass && rb.canPutStone(x, y);
-    }
 
     static bool iddfs(IReversiBoard rb, out int x, out int y, in int max_depth)
     {
@@ -268,7 +264,7 @@ private:
         }
     }
 
-    static bool iddfs(BitReversiModel rb, out int x, out int y, in int max_depth)
+    static bool iddfsb(BitReversiModel rb, out int x, out int y, in int max_depth)
     {
         auto pvs = getCanPutPosVal(rb);
         if(pvs.length == 0)
@@ -278,6 +274,7 @@ private:
 
         for( ; depth <= max_depth ; depth += 3)
         {
+            stderr.writeln("::",depth);
             bool is_put = false;
 
             try rb.putStoneWithSave(pvs[0].x, pvs[0].y);
@@ -408,8 +405,6 @@ private:
                 }
             }
         }
-
-        ++cnt;
 
         bool is_put = false;
 

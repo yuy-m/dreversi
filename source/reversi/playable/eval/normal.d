@@ -119,33 +119,26 @@ public int normaleval(bool print = false)(in ulong me, in ulong you)
         }
 
         //集計
-        /+switch(board.progress)
-        {
-        case 0:+/
         if(all_stone < N / 4)
             return val1 << 4//8
-                 + val2 << 4//9
+                 + val2 << 5//9
                  - val3 << 2//7
                  + val4 << 1;
-        //case 1:
         else if(all_stone < N / 2)
             return val1 << 4//7
-                 + val2 << 4//9
+                 + val2 << 5//9
                  - val3 << 2//5
-                 + val4 << 2;
-        //case 2:
+                 + val4 << 3;
         else if(all_stone < N * 3 / 4)
             return val1 << 2//3
                  + val2 << 3//9
                  + val3 << 3//6
                  + val4 << 4;
-        //default:
         else
             return val1 << 1//1
                  - val2 << 2//4
-                 + val3 << 4//10
+                 + val3 << 5//10
                  + val4 << 4;
-        //}
     }
 }
 
@@ -452,31 +445,7 @@ int cornerVal(
 
     int val = 0;
 
-    if(isMyStone(p1_x, p1_y))
-    {
-        val += point[0][0];
-        if(isYourStone(p2_x, p2_y))
-            val -= point[1][0];
-
-        if(isYourStone(p3_x, p3_y))
-            val -= point[1][0];
-
-        if(isYourStone(p4_x, p4_y))
-            val -= point[1][1];
-    }
-    else if(isYourStone(p1_x, p1_y))
-    {
-        val -= point[0][0];
-        if(isMyStone(p2_x, p2_y))
-            val += point[1][0];
-
-        if(isMyStone(p3_x, p3_y))
-            val += point[1][0];
-
-        if(isMyStone(p4_x, p4_y))
-            val += point[1][1];
-    }
-    else // if(isNoStone(p1_x, p1_y))
+    if(!isMyStone(p1_x, p1_y) && !isYourStone(p1_x, p1_y))
     {
         if(isMyStone(p2_x, p2_y))
             val += point[1][0];
