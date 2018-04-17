@@ -1,0 +1,56 @@
+module reversi.playable.game.cuiview;
+
+import std.stdio;
+import std.string;
+import std.conv;
+
+import reversi.playable.game.iview;
+import reversi.playable.algo.human;
+
+class CUIView : AbstractView
+{
+    IModel ;
+    this()
+    {
+        model.addTurnChangeListener((in IModel){
+            if()
+                invokeInputMove(getMove());
+        });
+        model.addResetListener((in IModel){
+            if()
+                invokeInputMove(getMove());
+        });
+    }
+
+    Move getMove()
+    {
+        immutable x = input("x");
+        if(x == -1)
+            return null;
+        immutable y = input("y");
+        if(y == -1)
+            return null;
+
+        return new Move(x, y);
+    }
+
+    int input(in string str)
+    {
+        while(true)
+        {
+            write(str, " = ");
+            stdout.flush;
+            immutable s = readln.chomp;
+            if(s == "pass" || s == "p")
+                return -1;
+            else if(s == "quit" || s == "q")
+                throw new Exception("Quit Reversi Game.");
+
+            try{
+                return s.to!int - 1;
+            } catch(ConvException e) {
+                writeln("Input number.");
+            }
+        }
+    }
+}

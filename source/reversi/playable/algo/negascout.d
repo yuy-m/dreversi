@@ -12,9 +12,8 @@ immutable HASH2 = 0;
 
 class NegaScout(
     int DEPTH = 3,
-    int LAST_DEPTH = DEPTH * 3 / 2,
-    int HASH_DEPTH = DEPTH - 3) : IPlayer
-if(DEPTH >= HASH_DEPTH)
+    int LAST_DEPTH = DEPTH + 2,
+    int HASH_DEPTH = DEPTH - 3) : IPlayer if(DEPTH >= HASH_DEPTH)
 {
     override Move getMove(in IReversiBoard rb)
     {
@@ -22,7 +21,7 @@ if(DEPTH >= HASH_DEPTH)
 
         int x, y;
         immutable rest = rb.fieldSize - rb.countAll;
-        immutable d = (rest < LAST_DEPTH)? min(DEPTH, rest): rest;
+        immutable d = (rest < LAST_DEPTH)? rest: min(DEPTH, rest);
 
         auto rb_ = (cast()rb).dup;
 
@@ -36,6 +35,7 @@ if(DEPTH >= HASH_DEPTH)
     }
 
 private:
+    static ulong cnt;
 
     static bool iddfs(IReversiBoard rb, out int x, out int y, in int max_depth)
     {
@@ -274,7 +274,8 @@ private:
 
         for( ; depth <= max_depth ; depth += 3)
         {
-            stderr.writeln("::",depth);
+            cnt = 0;
+            stderr.writeln(":", depth);
             bool is_put = false;
 
             try rb.putStoneWithSave(pvs[0].x, pvs[0].y);
@@ -358,6 +359,10 @@ private:
 
     public static int negascout1(in ulong me, in ulong you, int alpha, int beta, in bool pass, in int depth)
     {
+        ++cnt;
+        ulong c = cnt;
+        if(c % 10000 == 0)
+            stderr.writeln(" : ", c);
         int max_val = int.min;
 
         if(depth <= 0)
@@ -421,7 +426,7 @@ private:
 
                 if(is_put)
                 {
-                    //NullWindowSearch
+                    // NullWindowSearch
                     int val = -negascout1(new_you, new_me, -alpha-1, -alpha, false, depth-1);
 
                     if(val >= beta)

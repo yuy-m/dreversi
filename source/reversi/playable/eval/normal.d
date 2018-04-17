@@ -10,13 +10,13 @@ public int normaleval(bool print = false)(in IReversiBoard rb)
     immutable white_stone = rb.countWhite;
     immutable all_stone = black_stone + white_stone;
 
-    if(all_stone > rb.fieldSize - 6)//rb.progress == 4)
+    if(all_stone == N)
     {
         //石数
         if(rb.turn.isBlack)
-            return ((black_stone - white_stone) << 6);
+            return ((black_stone - white_stone) << 9);
         else
-            return ((white_stone - black_stone) << 6);
+            return ((white_stone - black_stone) << 9);
     }
     else
     {
@@ -34,89 +34,6 @@ public int normaleval(bool print = false)(in IReversiBoard rb)
 
         // 確定石
         int val4 = confirmstoneeval(rb);
-
-        debug static if(print)
-        {
-            import std.stdio;
-            /+writeln("1:",val1);
-            writeln("2:",val2);
-            writeln("3:",val3);
-            +/
-        }
-
-        //集計
-        /+switch(board.progress)
-        {
-        case 0:+/
-        if(all_stone < rb.fieldSize / 4)
-            return val1 << 4//8
-                 + val2 << 4//9
-                 - val3 << 2//7
-                 + val4 << 1;
-        //case 1:
-        else if(all_stone < rb.fieldSize / 2)
-            return val1 << 4//7
-                 + val2 << 4//9
-                 - val3 << 2//5
-                 + val4 << 2;
-        //case 2:
-        else if(all_stone < rb.fieldSize * 3 / 4)
-            return val1 << 2//3
-                 + val2 << 3//9
-                 + val3 << 3//6
-                  + val4 << 4;
-        //default:
-        else
-            return val1 << 1//1
-                 - val2 << 2//4
-                 + val3 << 4//10
-                 + val4 << 4;
-        //}
-    }
-}
-
-public int normaleval(bool print = false)(in ulong me, in ulong you)
-{
-    import reversi.board.model.bit.bitmodel;
-
-    immutable my_stone  = me.countBit;
-    immutable your_stone = you.countBit;
-    immutable all_stone = my_stone + your_stone;
-
-    if(all_stone > N - 6)//rb.progress == 4)
-    {
-        //石数
-        return (my_stone - your_stone) << 6;
-    }
-    else
-    {
-        //位置評価
-        immutable val1 = poseval(me, you);
-
-        //着手可能数
-        immutable val2 = {
-            int cnt = 0;
-            foreach(x; 0..N)
-                foreach(y; 0..N)
-                    if(BitReversiModel.getFlipPattern(me, you, x, y))
-                        ++cnt;
-            return cnt;
-        }();
-
-        //石数
-        immutable val3 = my_stone - your_stone;
-
-        // 確定石
-        int val4 = confirmstoneeval(me, you);
-
-        debug static if(print)
-        {
-            import std.stdio;
-            /+writeln("1:",val1);
-            writeln("2:",val2);
-            writeln("3:",val3);
-            +/
-        }
 
         //集計
         if(all_stone < N / 4)
@@ -136,7 +53,73 @@ public int normaleval(bool print = false)(in ulong me, in ulong you)
                  + val4 << 4;
         else
             return val1 << 1//1
-                 - val2 << 2//4
+                 + val2 << 2//4
+                 + val3 << 5//10
+                 + val4 << 4;
+    }
+}
+
+public int normaleval(bool print = false)(in ulong me, in ulong you)
+out(r){
+    import std.stdio;
+    stderr.writeln(r);
+}
+body{
+    import reversi.board.model.bit.bitmodel;
+
+    immutable my_stone  = me.countBit;
+    immutable your_stone = you.countBit;
+    immutable all_stone = my_stone + your_stone;
+
+    if(all_stone == N)
+    {
+        //石数
+        return (my_stone - your_stone) << 9;
+    }
+    else
+    {
+        //位置評価
+        immutable val1 = poseval(me, you);
+        //stderr.write("1");
+
+        //着手可能数
+        immutable val2 = {
+            int cnt = 0;
+            foreach(x; 0..N)
+                foreach(y; 0..N)
+                    if(BitReversiModel.getFlipPattern(me, you, x, y))
+                        ++cnt;
+            return cnt;
+        }();
+        //stderr.write("2");
+
+        //石数
+        immutable val3 = my_stone - your_stone;
+        //stderr.write("3");
+
+        // 確定石
+        int val4 = confirmstoneeval(me, you);
+        //stderr.write("4");
+
+        //集計
+        if(all_stone < N / 4)
+            return val1 << 4//8
+                 + val2 << 5//9
+                 - val3 << 2//7
+                 + val4 << 1;
+        else if(all_stone < N / 2)
+            return val1 << 4//7
+                 + val2 << 5//9
+                 - val3 << 2//5
+                 + val4 << 3;
+        else if(all_stone < N * 3 / 4)
+            return val1 << 2//3
+                 + val2 << 3//9
+                 + val3 << 3//6
+                 + val4 << 4;
+        else
+            return val1 << 1//1
+                 + val2 << 2//4
                  + val3 << 5//10
                  + val4 << 4;
     }
@@ -248,26 +231,10 @@ int cornerVal(
     if(rb.isMyStone(p1_x, p1_y))
     {
         val += point[0][0];
-        if(rb.isYourStone(p2_x, p2_y))
-            val -= point[1][0];
-
-        if(rb.isYourStone(p3_x, p3_y))
-            val -= point[1][0];
-
-        if(rb.isYourStone(p4_x, p4_y))
-            val -= point[1][1];
     }
     else if(rb.isYourStone(p1_x, p1_y))
     {
         val -= point[0][0];
-        if(rb.isMyStone(p2_x, p2_y))
-            val -= point[1][0];
-
-        if(rb.isMyStone(p3_x, p3_y))
-            val -= point[1][0];
-
-        if(rb.isMyStone(p4_x, p4_y))
-            val += point[1][1];
     }
     else // if(rb.isNoStone(p1_x, p1_y))
     {
@@ -445,7 +412,15 @@ int cornerVal(
 
     int val = 0;
 
-    if(!isMyStone(p1_x, p1_y) && !isYourStone(p1_x, p1_y))
+    if(isMyStone(p1_x, p1_y))
+    {
+        val += point[0][0];
+    }
+    else if(isYourStone(p1_x, p1_y))
+    {
+        val -= point[0][0];
+    }
+    else
     {
         if(isMyStone(p2_x, p2_y))
             val += point[1][0];
@@ -477,7 +452,7 @@ int confirmstoneeval(in ulong me, in ulong you)
     }
     static bool isInField(in int x) pure nothrow
     {
-        return 0 >= 0 && x < N;
+        return x >= 0 && x < N;
     }
 
     immutable width = N;

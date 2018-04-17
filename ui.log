@@ -1,355 +1,576 @@
 DlangUI log file
-2017-06-29 16:16:18.337 I  Log level changed to Trace
-2017-06-29 16:16:18.337 I  Logger is initialized
-2017-06-29 16:16:18.337 D  myWinMain()
-2017-06-29 16:16:18.337 I  Current executable: C:\cygwin64\home\hbsdbe\d\reversi\
-2017-06-29 16:16:18.337 I  Command line: 
-2017-06-29 16:16:18.337 I  Command line params: []
-2017-06-29 16:16:18.337 V  Creating platform
-2017-06-29 16:16:18.337 V  Registering window class
-2017-06-29 16:16:18.337 V  Initializing font manager
-2017-06-29 16:16:18.337 I  Creating Win32FontManager
-2017-06-29 16:16:18.337 I  Win32FontManager.initialize()
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Arial)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Arial Black)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Calibri)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Calibri Light)
-2017-06-29 16:16:18.337 D  registerFont(Serif,Cambria)
-2017-06-29 16:16:18.337 D  registerFont(Serif,Cambria Math)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Candara)
-2017-06-29 16:16:18.337 D  registerFont(Cursive,Comic Sans MS)
-2017-06-29 16:16:18.337 D  registerFont(MonoSpace,Consolas)
-2017-06-29 16:16:18.337 D  registerFont(Serif,Constantia)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Corbel)
-2017-06-29 16:16:18.337 D  registerFont(MonoSpace,Courier New)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Ebrima)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Franklin Gothic Medium)
-2017-06-29 16:16:18.337 D  registerFont(Fantasy,Gabriola)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Gadugi)
-2017-06-29 16:16:18.337 D  registerFont(Serif,Georgia)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Impact)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Javanese Text)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Leelawadee UI)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Leelawadee UI Semilight)
-2017-06-29 16:16:18.337 D  registerFont(MonoSpace,Lucida Console)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Lucida Sans Unicode)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Malgun Gothic)
-2017-06-29 16:16:18.337 D  registerFont(Serif,Malgun Gothic Semilight)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Microsoft Himalaya)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Microsoft JhengHei)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Microsoft JhengHei UI)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Microsoft JhengHei Light)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Microsoft JhengHei UI Light)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Microsoft New Tai Lue)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Microsoft PhagsPa)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Microsoft Sans Serif)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Microsoft Tai Le)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Microsoft YaHei)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Microsoft YaHei UI)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Microsoft YaHei Light)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Microsoft YaHei UI Light)
-2017-06-29 16:16:18.337 D  registerFont(Cursive,Microsoft Yi Baiti)
-2017-06-29 16:16:18.337 D  registerFont(Serif,MingLiU-ExtB)
-2017-06-29 16:16:18.337 D  registerFont(Serif,PMingLiU-ExtB)
-2017-06-29 16:16:18.337 D  registerFont(Serif,MingLiU_HKSCS-ExtB)
-2017-06-29 16:16:18.337 D  registerFont(Cursive,Mongolian Baiti)
-2017-06-29 16:16:18.337 D  registerFont(MonoSpace,ÇlÇr ÉSÉVÉbÉN)
-2017-06-29 16:16:18.337 D  registerFont(Serif,MS UI Gothic)
-2017-06-29 16:16:18.337 D  registerFont(Serif,ÇlÇr ÇoÉSÉVÉbÉN)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,MV Boli)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Myanmar Text)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Nirmala UI)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Nirmala UI Semilight)
-2017-06-29 16:16:18.337 D  registerFont(Serif,Palatino Linotype)
-2017-06-29 16:16:18.337 D  registerFont(Serif,Segoe MDL2 Assets)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Segoe Print)
-2017-06-29 16:16:18.337 D  registerFont(Cursive,Segoe Script)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Segoe UI)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Segoe UI Black)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Segoe UI Emoji)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Segoe UI Historic)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Segoe UI Light)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Segoe UI Semibold)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Segoe UI Semilight)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Segoe UI Symbol)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,SimSun)
-2017-06-29 16:16:18.337 D  registerFont(MonoSpace,NSimSun)
-2017-06-29 16:16:18.337 D  registerFont(MonoSpace,SimSun-ExtB)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Sitka Small)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Sitka Text)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Sitka Subheading)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Sitka Heading)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Sitka Display)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Sitka Banner)
-2017-06-29 16:16:18.337 D  registerFont(Serif,Sylfaen)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Tahoma)
-2017-06-29 16:16:18.337 D  registerFont(Serif,Times New Roman)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Trebuchet MS)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Verdana)
-2017-06-29 16:16:18.337 D  registerFont(Serif,ü‡ÉSÉVÉbÉN)
-2017-06-29 16:16:18.337 D  registerFont(Serif,Yu Gothic UI)
-2017-06-29 16:16:18.337 D  registerFont(Serif,Yu Gothic UI Semibold)
-2017-06-29 16:16:18.337 D  registerFont(Serif,ü‡ÉSÉVÉbÉN Light)
-2017-06-29 16:16:18.337 D  registerFont(Serif,Yu Gothic UI Light)
-2017-06-29 16:16:18.337 D  registerFont(Serif,ü‡ÉSÉVÉbÉN Medium)
-2017-06-29 16:16:18.337 D  registerFont(Serif,Yu Gothic UI Semilight)
-2017-06-29 16:16:18.337 D  registerFont(Serif,ÉÅÉCÉäÉI)
-2017-06-29 16:16:18.337 D  registerFont(Serif,Meiryo UI)
-2017-06-29 16:16:18.337 D  registerFont(MonoSpace,ÇlÇr ñæí©)
-2017-06-29 16:16:18.337 D  registerFont(Serif,ÇlÇr Çoñæí©)
-2017-06-29 16:16:18.337 D  registerFont(Serif,ü‡ñæí©)
-2017-06-29 16:16:18.337 D  registerFont(Serif,ü‡ñæí© Demibold)
-2017-06-29 16:16:18.337 D  registerFont(Serif,ü‡ñæí© Light)
-2017-06-29 16:16:18.337 D  registerFont(Serif,HoloLens MDL2 Assets)
-2017-06-29 16:16:18.337 D  registerFont(MonoSpace,OCRB)
-2017-06-29 16:16:18.337 D  registerFont(MonoSpace,HGñæí©E)
-2017-06-29 16:16:18.337 D  registerFont(Serif,HGPñæí©E)
-2017-06-29 16:16:18.337 D  registerFont(Serif,HGSñæí©E)
-2017-06-29 16:16:18.337 D  registerFont(MonoSpace,HGënâpäpŒﬂØÃﬂëÃ)
-2017-06-29 16:16:18.337 D  registerFont(Serif,HGPënâpäpŒﬂØÃﬂëÃ)
-2017-06-29 16:16:18.337 D  registerFont(Serif,HGSënâpäpŒﬂØÃﬂëÃ)
-2017-06-29 16:16:18.337 D  registerFont(MonoSpace,HGënâpäp∫ﬁºØ∏UB)
-2017-06-29 16:16:18.337 D  registerFont(Serif,HGPënâpäp∫ﬁºØ∏UB)
-2017-06-29 16:16:18.337 D  registerFont(Serif,HGSënâpäp∫ﬁºØ∏UB)
-2017-06-29 16:16:18.337 D  registerFont(Serif,HGä€∫ﬁºØ∏M-PRO)
-2017-06-29 16:16:18.337 D  registerFont(MonoSpace,HG∫ﬁºØ∏E)
-2017-06-29 16:16:18.337 D  registerFont(Serif,HGP∫ﬁºØ∏E)
-2017-06-29 16:16:18.337 D  registerFont(Serif,HGS∫ﬁºØ∏E)
-2017-06-29 16:16:18.337 D  registerFont(Serif,Arial Unicode MS)
-2017-06-29 16:16:18.337 D  registerFont(Serif,Century)
-2017-06-29 16:16:18.337 D  registerFont(Fantasy,Tempus Sans ITC)
-2017-06-29 16:16:18.337 D  registerFont(Cursive,Pristina)
-2017-06-29 16:16:18.337 D  registerFont(Cursive,Papyrus)
-2017-06-29 16:16:18.337 D  registerFont(Cursive,Mistral)
-2017-06-29 16:16:18.337 D  registerFont(Cursive,Lucida Handwriting)
-2017-06-29 16:16:18.337 D  registerFont(Cursive,Kristen ITC)
-2017-06-29 16:16:18.337 D  registerFont(Fantasy,Juice ITC)
-2017-06-29 16:16:18.337 D  registerFont(Cursive,French Script MT)
-2017-06-29 16:16:18.337 D  registerFont(Cursive,Freestyle Script)
-2017-06-29 16:16:18.337 D  registerFont(Cursive,Bradley Hand ITC)
-2017-06-29 16:16:18.337 D  registerFont(Serif,Book Antiqua)
-2017-06-29 16:16:18.337 D  registerFont(Serif,Garamond)
-2017-06-29 16:16:18.337 D  registerFont(Cursive,Monotype Corsiva)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Century Gothic)
-2017-06-29 16:16:18.337 D  registerFont(Fantasy,Algerian)
-2017-06-29 16:16:18.337 D  registerFont(Serif,Baskerville Old Face)
-2017-06-29 16:16:18.337 D  registerFont(Fantasy,Bauhaus 93)
-2017-06-29 16:16:18.337 D  registerFont(Serif,Bell MT)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Berlin Sans FB)
-2017-06-29 16:16:18.337 D  registerFont(Serif,Bernard MT Condensed)
-2017-06-29 16:16:18.337 D  registerFont(Serif,Bodoni MT Poster Compressed)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Britannic Bold)
-2017-06-29 16:16:18.337 D  registerFont(Fantasy,Broadway)
-2017-06-29 16:16:18.337 D  registerFont(Cursive,Brush Script MT)
-2017-06-29 16:16:18.337 D  registerFont(Serif,Californian FB)
-2017-06-29 16:16:18.337 D  registerFont(Serif,Centaur)
-2017-06-29 16:16:18.337 D  registerFont(Fantasy,Chiller)
-2017-06-29 16:16:18.337 D  registerFont(Fantasy,Colonna MT)
-2017-06-29 16:16:18.337 D  registerFont(Serif,Cooper Black)
-2017-06-29 16:16:18.337 D  registerFont(Serif,Footlight MT Light)
-2017-06-29 16:16:18.337 D  registerFont(Fantasy,Harlow Solid Italic)
-2017-06-29 16:16:18.337 D  registerFont(Fantasy,Harrington)
-2017-06-29 16:16:18.337 D  registerFont(Serif,High Tower Text)
-2017-06-29 16:16:18.337 D  registerFont(Fantasy,Jokerman)
-2017-06-29 16:16:18.337 D  registerFont(Cursive,Kunstler Script)
-2017-06-29 16:16:18.337 D  registerFont(Serif,Lucida Bright)
-2017-06-29 16:16:18.337 D  registerFont(Cursive,Lucida Calligraphy)
-2017-06-29 16:16:18.337 D  registerFont(Serif,Lucida Fax)
-2017-06-29 16:16:18.337 D  registerFont(Fantasy,Magneto)
-2017-06-29 16:16:18.337 D  registerFont(Cursive,Matura MT Script Capitals)
-2017-06-29 16:16:18.337 D  registerFont(Serif,Modern No. 20)
-2017-06-29 16:16:18.337 D  registerFont(Fantasy,Niagara Engraved)
-2017-06-29 16:16:18.337 D  registerFont(Fantasy,Niagara Solid)
-2017-06-29 16:16:18.337 D  registerFont(Cursive,Old English Text MT)
-2017-06-29 16:16:18.337 D  registerFont(Fantasy,Onyx)
-2017-06-29 16:16:18.337 D  registerFont(Cursive,Parchment)
-2017-06-29 16:16:18.337 D  registerFont(Fantasy,Playbill)
-2017-06-29 16:16:18.337 D  registerFont(Serif,Poor Richard)
-2017-06-29 16:16:18.337 D  registerFont(Fantasy,Ravie)
-2017-06-29 16:16:18.337 D  registerFont(Cursive,Informal Roman)
-2017-06-29 16:16:18.337 D  registerFont(Fantasy,Showcard Gothic)
-2017-06-29 16:16:18.337 D  registerFont(Fantasy,Snap ITC)
-2017-06-29 16:16:18.337 D  registerFont(Fantasy,Stencil)
-2017-06-29 16:16:18.337 D  registerFont(Cursive,Viner Hand ITC)
-2017-06-29 16:16:18.337 D  registerFont(Cursive,Vivaldi)
-2017-06-29 16:16:18.337 D  registerFont(Cursive,Vladimir Script)
-2017-06-29 16:16:18.337 D  registerFont(Serif,Wide Latin)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Tw Cen MT)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Tw Cen MT Condensed)
-2017-06-29 16:16:18.337 D  registerFont(Cursive,Script MT Bold)
-2017-06-29 16:16:18.337 D  registerFont(Serif,Rockwell Extra Bold)
-2017-06-29 16:16:18.337 D  registerFont(Serif,Rockwell Condensed)
-2017-06-29 16:16:18.337 D  registerFont(Serif,Rockwell)
-2017-06-29 16:16:18.337 D  registerFont(Cursive,Rage Italic)
-2017-06-29 16:16:18.337 D  registerFont(Serif,Perpetua Titling MT)
-2017-06-29 16:16:18.337 D  registerFont(Serif,Perpetua)
-2017-06-29 16:16:18.337 D  registerFont(Cursive,Palace Script MT)
-2017-06-29 16:16:18.337 D  registerFont(Serif,OCR A Extended)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Maiandra GD)
-2017-06-29 16:16:18.337 D  registerFont(MonoSpace,Lucida Sans Typewriter)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Lucida Sans)
-2017-06-29 16:16:18.337 D  registerFont(Fantasy,Imprint MT Shadow)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Haettenschweiler)
-2017-06-29 16:16:18.337 D  registerFont(Serif,Goudy Stout)
-2017-06-29 16:16:18.337 D  registerFont(Serif,Goudy Old Style)
-2017-06-29 16:16:18.337 D  registerFont(Serif,Gloucester MT Extra Condensed)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Gill Sans Ultra Bold Condensed)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Gill Sans Ultra Bold)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Gill Sans MT Condensed)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Gill Sans MT)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Gill Sans MT Ext Condensed Bold)
-2017-06-29 16:16:18.337 D  registerFont(Fantasy,Gigi)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Franklin Gothic Medium Cond)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Franklin Gothic Heavy)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Franklin Gothic Demi Cond)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Franklin Gothic Demi)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Franklin Gothic Book)
-2017-06-29 16:16:18.337 D  registerFont(Cursive,Forte)
-2017-06-29 16:16:18.337 D  registerFont(Fantasy,Felix Titling)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Eras Medium ITC)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Eras Light ITC)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Eras Demi ITC)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Eras Bold ITC)
-2017-06-29 16:16:18.337 D  registerFont(Serif,Engravers MT)
-2017-06-29 16:16:18.337 D  registerFont(Serif,Elephant)
-2017-06-29 16:16:18.337 D  registerFont(Cursive,Edwardian Script ITC)
-2017-06-29 16:16:18.337 D  registerFont(Fantasy,Curlz MT)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Copperplate Gothic Light)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Copperplate Gothic Bold)
-2017-06-29 16:16:18.337 D  registerFont(Serif,Century Schoolbook)
-2017-06-29 16:16:18.337 D  registerFont(Serif,Castellar)
-2017-06-29 16:16:18.337 D  registerFont(Serif,Calisto MT)
-2017-06-29 16:16:18.337 D  registerFont(Serif,Bookman Old Style)
-2017-06-29 16:16:18.337 D  registerFont(Serif,Bodoni MT Condensed)
-2017-06-29 16:16:18.337 D  registerFont(Serif,Bodoni MT Black)
-2017-06-29 16:16:18.337 D  registerFont(Serif,Bodoni MT)
-2017-06-29 16:16:18.337 D  registerFont(Fantasy,Blackadder ITC)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Arial Rounded MT Bold)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Agency FB)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,MS Reference Sans Serif)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Berlin Sans FB Demi)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Tw Cen MT Condensed Extra Bold)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Arial Narrow)
-2017-06-29 16:16:18.337 D  registerFont(Cursive,Buxton Sketch)
-2017-06-29 16:16:18.337 D  registerFont(Cursive,Segoe Marker)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,SketchFlow Print)
-2017-06-29 16:16:18.337 D  registerFont(MonoSpace,MyricaM M)
-2017-06-29 16:16:18.337 D  registerFont(Serif,MyricaM P)
-2017-06-29 16:16:18.337 D  registerFont(Serif,MyricaM N)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Infty Font 5)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Infty Font 6)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Infty Font 7)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Infty Font 8)
-2017-06-29 16:16:18.337 D  registerFont(MonoSpace,DengXian)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Microsoft MHei)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Microsoft NeoGothic)
-2017-06-29 16:16:18.337 D  registerFont(Serif,Yu Gothic)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Segoe WP Black)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Segoe WP)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Segoe WP Semibold)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Segoe WP Light)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Segoe WP SemiLight)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,DejaVu Sans Condensed)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,OpenSymbol)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Arimo)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Gentium Basic)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,Gentium Book Basic)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,DejaVu Sans)
-2017-06-29 16:16:18.337 D  registerFont(MonoSpace,DejaVu Sans Mono)
-2017-06-29 16:16:18.337 D  registerFont(Serif,DejaVu Serif Condensed)
-2017-06-29 16:16:18.337 D  registerFont(Serif,DejaVu Serif)
-2017-06-29 16:16:18.337 D  registerFont(SansSerif,DejaVu Sans Light)
-2017-06-29 16:16:18.337 I  Found 249 font faces
-2017-06-29 16:16:18.337 D  initResourceManagers()
-2017-06-29 16:16:18.337 I  Creating ImageCache
-2017-06-29 16:16:18.337 I  Creating DrawableCache
-2017-06-29 16:16:18.337 D  Calling initSharedResourceManagers()
-2017-06-29 16:16:18.337 D  Calling initStandardEditorActions()
-2017-06-29 16:16:18.337 D  Calling registerStandardWidgets()
-2017-06-29 16:16:18.337 D  Registering standard widgets for DML
-2017-06-29 16:16:18.337 D  initResourceManagers() -- finished
-2017-06-29 16:16:18.337 D  Creating default theme
-2017-06-29 16:16:18.337 D  Loading Derelict GL
-2017-06-29 16:16:18.337 D  Derelict GL - loaded
-2017-06-29 16:16:18.337 I  Entering UIAppMain: []
-2017-06-29 16:16:18.337 V  Loading language file
-2017-06-29 16:16:18.337 D  Loading string resources from file @embedded@/std_en.ini
-2017-06-29 16:16:18.337 V  Calling onThemeChanged
-2017-06-29 16:16:18.337 V  uiTheme setting new theme theme_default
-2017-06-29 16:16:18.337 I  Applying loaded theme theme_default
-2017-06-29 16:16:18.337 D  Platform.createWindow is called
-2017-06-29 16:16:18.337 V  Platform.createWindow : setDefaultLanguageAndThemeIfNecessary
-2017-06-29 16:16:18.337 V  Platform.createWindow : new Win32Window
-2017-06-29 16:16:18.352 D  Window onCreate
-2017-06-29 16:16:18.352 V  created window, adding to map
-2017-06-29 16:16:18.368 V  Reloading DerelictGL3
-2017-06-29 16:16:18.368 V  Reloading DerelictGL
-2017-06-29 16:16:18.368 D  glSupport not initialized: trying to create
-2017-06-29 16:16:18.368 V  Compiling solid fill program
-2017-06-29 16:16:18.368 D  compileShader: glslVersion = 4.40 - Build 20.19.15.4549, type: GL_VERTEX_SHADER
-2017-06-29 16:16:18.368 D  compileShader: glslVersion = 4.40 - Build 20.19.15.4549, type: GL_FRAGMENT_SHADER
-2017-06-29 16:16:18.368 D  Program linked successfully
-2017-06-29 16:16:18.368 V  Program is initialized successfully
-2017-06-29 16:16:18.368 V  Compiling texture program
-2017-06-29 16:16:18.368 D  compileShader: glslVersion = 4.40 - Build 20.19.15.4549, type: GL_VERTEX_SHADER
-2017-06-29 16:16:18.368 D  compileShader: glslVersion = 4.40 - Build 20.19.15.4549, type: GL_FRAGMENT_SHADER
-2017-06-29 16:16:18.368 D  Program linked successfully
-2017-06-29 16:16:18.368 V  Program is initialized successfully
-2017-06-29 16:16:18.368 D  Shaders compiled successfully
-2017-06-29 16:16:18.368 V  OpenGL is initialized ok
-2017-06-29 16:16:18.384 D  Loading image from file @embedded@/btn_pressed.9.png
-2017-06-29 16:16:18.384 D  Loading image from file @embedded@/btn_default.9.png
-2017-06-29 16:16:18.384 D  Loading image from file @embedded@/btn_normal.9.png
-2017-06-29 16:16:18.384 D  Loading image from file @embedded@/btn_hover.9.png
-2017-06-29 16:16:18.384 D  Loading image from file @embedded@/btn_disabled.9.png
-2017-06-29 16:16:18.384 D  Loading image from file @embedded@/scrollbar_btn_left.png
-2017-06-29 16:16:18.384 D  Loading image from file @embedded@/scrollbar_btn_background_pressed.9.png
-2017-06-29 16:16:18.384 D  Loading image from file @embedded@/scrollbar_btn_background_normal.9.png
-2017-06-29 16:16:18.384 D  Loading image from file @embedded@/scrollbar_btn_background_hover.9.png
-2017-06-29 16:16:18.384 D  Loading image from file @embedded@/scrollbar_btn_right.png
-2017-06-29 16:16:18.384 D  Loading image from file @embedded@/scrollbar_indicator_horizontal.png
-2017-06-29 16:16:18.384 D  Loading image from file @embedded@/scrollbar_btn_background_disabled.9.png
-2017-06-29 16:16:18.399 D  WM_WINDOWPOSCHANGED: WINDOWPOS(100742, D04E8, 26, 26, 600, 400, 268441667)
-2017-06-29 16:16:18.399 D  onResize 584x361
-2017-06-29 16:16:18.399 D  resize: measure took 0 ms
-2017-06-29 16:16:18.399 D  resize: layout took 0 ms
-2017-06-29 16:16:18.399 D  Platform.createWindow is called
-2017-06-29 16:16:18.399 V  Platform.createWindow : setDefaultLanguageAndThemeIfNecessary
-2017-06-29 16:16:18.399 V  Platform.createWindow : new Win32Window
-2017-06-29 16:16:18.399 D  Window onCreate
-2017-06-29 16:16:18.399 V  created window, adding to map
-2017-06-29 16:16:18.415 I  OpenGL context already exists. Setting pixel format.
-2017-06-29 16:16:18.462 V  created image cache page 1024x1024
-2017-06-29 16:16:18.462 D  updateTexture - new texture id=1
-2017-06-29 16:16:18.462 D  updateTexture for cache page - setting image 1024x1024 tx=1
-2017-06-29 16:16:18.509 D  WM_WINDOWPOSCHANGED: WINDOWPOS(90750, 50734, 52, 52, 600, 400, 268441671)
-2017-06-29 16:16:18.509 D  onResize 584x361
-2017-06-29 16:16:18.509 D  resize: measure took 0 ms
-2017-06-29 16:16:18.509 D  resize: layout took 0 ms
-2017-06-29 16:16:18.524 V  created glyph cache page 1024x1024
-2017-06-29 16:16:18.524 D  updateTexture - new texture id=2
-2017-06-29 16:16:18.524 D  updateTexture for cache page - setting image 1024x1024 tx=2
-2017-06-29 16:16:18.524 D  updateTexture for cache page - setting image 1024x1024 tx=1
-2017-06-29 16:16:18.555 D  updateTexture for cache page - setting image 1024x1024 tx=2
-2017-06-29 16:16:18.555 D  updateTexture for cache page - setting image 1024x1024 tx=1
-2017-06-29 16:16:19.024 D  updateTexture for cache page - setting image 1024x1024 tx=1
-2017-06-29 16:16:19.759 D  updateTexture for cache page - setting image 1024x1024 tx=1
-2017-06-29 16:16:19.884 D  Window.close()
-2017-06-29 16:16:19.884 D  WM_CLOSE: closing window 
-2017-06-29 16:16:19.884 D  WM_WINDOWPOSCHANGED: WINDOWPOS(90750, null, 52, 52, 600, 400, 6295)
-2017-06-29 16:16:19.899 D  WM_WINDOWPOSCHANGED: WINDOWPOS(90750, 50734, 52, 52, 600, 400, 6171)
-2017-06-29 16:16:19.899 D  WM_WINDOWPOSCHANGED: WINDOWPOS(100742, 90750, 26, 26, 600, 400, 6147)
-2017-06-29 16:16:19.899 D  Window onDestroy
-2017-06-29 16:16:19.899 V  destroyed window, removing from map
-2017-06-29 16:16:19.899 E  Cannot find window in map by HWND
-2017-06-29 16:16:19.899 D  Window destructor
-2017-06-29 16:16:19.899 D  Destroying window
-2017-06-29 16:16:20.946 D  updateTexture for cache page - setting image 1024x1024 tx=2
-2017-06-29 16:18:09.446 D  WM_WINDOWPOSCHANGED: WINDOWPOS(100742, D04E8, 26, 26, 600, 400, 6147)
-2017-06-29 16:18:11.290 D  WM_CLOSE: closing window 
-2017-06-29 16:18:11.305 D  WM_WINDOWPOSCHANGED: WINDOWPOS(100742, null, 26, 26, 600, 400, 536877207)
-2017-06-29 16:18:11.305 D  Window onDestroy
-2017-06-29 16:18:11.305 V  destroyed window, removing from map
-2017-06-29 16:18:11.321 E  Cannot find window in map by HWND
-2017-06-29 16:18:11.321 D  Window destructor
-2017-06-29 16:18:11.321 D  Destroying window
+2017-07-01 00:20:30.442 I  Log level changed to Trace
+2017-07-01 00:20:30.442 I  Logger is initialized
+2017-07-01 00:20:30.442 D  myWinMain()
+2017-07-01 00:20:30.443 I  Current executable: C:\cygwin64\home\hbsdbe\d\reversi\
+2017-07-01 00:20:30.443 I  Command line: 
+2017-07-01 00:20:30.443 I  Command line params: []
+2017-07-01 00:20:30.443 V  Creating platform
+2017-07-01 00:20:30.443 V  Registering window class
+2017-07-01 00:20:30.443 V  Initializing font manager
+2017-07-01 00:20:30.443 I  Creating Win32FontManager
+2017-07-01 00:20:30.443 I  Win32FontManager.initialize()
+2017-07-01 00:20:30.444 D  registerFont(SansSerif,Arial)
+2017-07-01 00:20:30.444 D  registerFont(SansSerif,Arial Black)
+2017-07-01 00:20:30.444 D  registerFont(SansSerif,Calibri)
+2017-07-01 00:20:30.444 D  registerFont(SansSerif,Calibri Light)
+2017-07-01 00:20:30.444 D  registerFont(Serif,Cambria)
+2017-07-01 00:20:30.444 D  registerFont(Serif,Cambria Math)
+2017-07-01 00:20:30.444 D  registerFont(SansSerif,Candara)
+2017-07-01 00:20:30.444 D  registerFont(Cursive,Comic Sans MS)
+2017-07-01 00:20:30.444 D  registerFont(MonoSpace,Consolas)
+2017-07-01 00:20:30.444 D  registerFont(Serif,Constantia)
+2017-07-01 00:20:30.444 D  registerFont(SansSerif,Corbel)
+2017-07-01 00:20:30.444 D  registerFont(MonoSpace,Courier New)
+2017-07-01 00:20:30.444 D  registerFont(SansSerif,Ebrima)
+2017-07-01 00:20:30.444 D  registerFont(SansSerif,Franklin Gothic Medium)
+2017-07-01 00:20:30.444 D  registerFont(Fantasy,Gabriola)
+2017-07-01 00:20:30.444 D  registerFont(SansSerif,Gadugi)
+2017-07-01 00:20:30.444 D  registerFont(Serif,Georgia)
+2017-07-01 00:20:30.444 D  registerFont(SansSerif,Impact)
+2017-07-01 00:20:30.444 D  registerFont(SansSerif,Javanese Text)
+2017-07-01 00:20:30.444 D  registerFont(SansSerif,Leelawadee UI)
+2017-07-01 00:20:30.444 D  registerFont(SansSerif,Leelawadee UI Semilight)
+2017-07-01 00:20:30.444 D  registerFont(MonoSpace,Lucida Console)
+2017-07-01 00:20:30.444 D  registerFont(SansSerif,Lucida Sans Unicode)
+2017-07-01 00:20:30.444 D  registerFont(SansSerif,Malgun Gothic)
+2017-07-01 00:20:30.444 D  registerFont(Serif,Malgun Gothic Semilight)
+2017-07-01 00:20:30.444 D  registerFont(SansSerif,Microsoft Himalaya)
+2017-07-01 00:20:30.444 D  registerFont(SansSerif,Microsoft JhengHei)
+2017-07-01 00:20:30.444 D  registerFont(SansSerif,Microsoft JhengHei UI)
+2017-07-01 00:20:30.444 D  registerFont(SansSerif,Microsoft JhengHei Light)
+2017-07-01 00:20:30.444 D  registerFont(SansSerif,Microsoft JhengHei UI Light)
+2017-07-01 00:20:30.444 D  registerFont(SansSerif,Microsoft New Tai Lue)
+2017-07-01 00:20:30.444 D  registerFont(SansSerif,Microsoft PhagsPa)
+2017-07-01 00:20:30.444 D  registerFont(SansSerif,Microsoft Sans Serif)
+2017-07-01 00:20:30.444 D  registerFont(SansSerif,Microsoft Tai Le)
+2017-07-01 00:20:30.444 D  registerFont(SansSerif,Microsoft YaHei)
+2017-07-01 00:20:30.444 D  registerFont(SansSerif,Microsoft YaHei UI)
+2017-07-01 00:20:30.444 D  registerFont(SansSerif,Microsoft YaHei Light)
+2017-07-01 00:20:30.444 D  registerFont(SansSerif,Microsoft YaHei UI Light)
+2017-07-01 00:20:30.444 D  registerFont(Cursive,Microsoft Yi Baiti)
+2017-07-01 00:20:30.444 D  registerFont(Serif,MingLiU-ExtB)
+2017-07-01 00:20:30.445 D  registerFont(Serif,PMingLiU-ExtB)
+2017-07-01 00:20:30.445 D  registerFont(Serif,MingLiU_HKSCS-ExtB)
+2017-07-01 00:20:30.445 D  registerFont(Cursive,Mongolian Baiti)
+2017-07-01 00:20:30.445 D  registerFont(MonoSpace,ÇlÇr ÉSÉVÉbÉN)
+2017-07-01 00:20:30.445 D  registerFont(Serif,MS UI Gothic)
+2017-07-01 00:20:30.445 D  registerFont(Serif,ÇlÇr ÇoÉSÉVÉbÉN)
+2017-07-01 00:20:30.445 D  registerFont(SansSerif,MV Boli)
+2017-07-01 00:20:30.445 D  registerFont(SansSerif,Myanmar Text)
+2017-07-01 00:20:30.445 D  registerFont(SansSerif,Nirmala UI)
+2017-07-01 00:20:30.445 D  registerFont(SansSerif,Nirmala UI Semilight)
+2017-07-01 00:20:30.445 D  registerFont(Serif,Palatino Linotype)
+2017-07-01 00:20:30.445 D  registerFont(Serif,Segoe MDL2 Assets)
+2017-07-01 00:20:30.445 D  registerFont(SansSerif,Segoe Print)
+2017-07-01 00:20:30.445 D  registerFont(Cursive,Segoe Script)
+2017-07-01 00:20:30.445 D  registerFont(SansSerif,Segoe UI)
+2017-07-01 00:20:30.445 D  registerFont(SansSerif,Segoe UI Black)
+2017-07-01 00:20:30.445 D  registerFont(SansSerif,Segoe UI Emoji)
+2017-07-01 00:20:30.445 D  registerFont(SansSerif,Segoe UI Historic)
+2017-07-01 00:20:30.445 D  registerFont(SansSerif,Segoe UI Light)
+2017-07-01 00:20:30.445 D  registerFont(SansSerif,Segoe UI Semibold)
+2017-07-01 00:20:30.445 D  registerFont(SansSerif,Segoe UI Semilight)
+2017-07-01 00:20:30.445 D  registerFont(SansSerif,Segoe UI Symbol)
+2017-07-01 00:20:30.445 D  registerFont(SansSerif,SimSun)
+2017-07-01 00:20:30.445 D  registerFont(MonoSpace,NSimSun)
+2017-07-01 00:20:30.445 D  registerFont(MonoSpace,SimSun-ExtB)
+2017-07-01 00:20:30.445 D  registerFont(SansSerif,Sitka Small)
+2017-07-01 00:20:30.445 D  registerFont(SansSerif,Sitka Text)
+2017-07-01 00:20:30.445 D  registerFont(SansSerif,Sitka Subheading)
+2017-07-01 00:20:30.445 D  registerFont(SansSerif,Sitka Heading)
+2017-07-01 00:20:30.445 D  registerFont(SansSerif,Sitka Display)
+2017-07-01 00:20:30.446 D  registerFont(SansSerif,Sitka Banner)
+2017-07-01 00:20:30.446 D  registerFont(Serif,Sylfaen)
+2017-07-01 00:20:30.446 D  registerFont(SansSerif,Tahoma)
+2017-07-01 00:20:30.446 D  registerFont(Serif,Times New Roman)
+2017-07-01 00:20:30.446 D  registerFont(SansSerif,Trebuchet MS)
+2017-07-01 00:20:30.446 D  registerFont(SansSerif,Verdana)
+2017-07-01 00:20:30.446 D  registerFont(Serif,ü‡ÉSÉVÉbÉN)
+2017-07-01 00:20:30.446 D  registerFont(Serif,Yu Gothic UI)
+2017-07-01 00:20:30.446 D  registerFont(Serif,Yu Gothic UI Semibold)
+2017-07-01 00:20:30.446 D  registerFont(Serif,ü‡ÉSÉVÉbÉN Light)
+2017-07-01 00:20:30.446 D  registerFont(Serif,Yu Gothic UI Light)
+2017-07-01 00:20:30.446 D  registerFont(Serif,ü‡ÉSÉVÉbÉN Medium)
+2017-07-01 00:20:30.446 D  registerFont(Serif,Yu Gothic UI Semilight)
+2017-07-01 00:20:30.446 D  registerFont(Serif,ÉÅÉCÉäÉI)
+2017-07-01 00:20:30.446 D  registerFont(Serif,Meiryo UI)
+2017-07-01 00:20:30.447 D  registerFont(MonoSpace,ÇlÇr ñæí©)
+2017-07-01 00:20:30.447 D  registerFont(Serif,ÇlÇr Çoñæí©)
+2017-07-01 00:20:30.447 D  registerFont(Serif,ü‡ñæí©)
+2017-07-01 00:20:30.447 D  registerFont(Serif,ü‡ñæí© Demibold)
+2017-07-01 00:20:30.447 D  registerFont(Serif,ü‡ñæí© Light)
+2017-07-01 00:20:30.447 D  registerFont(Serif,HoloLens MDL2 Assets)
+2017-07-01 00:20:30.447 D  registerFont(MonoSpace,OCRB)
+2017-07-01 00:20:30.447 D  registerFont(MonoSpace,HGñæí©E)
+2017-07-01 00:20:30.447 D  registerFont(Serif,HGPñæí©E)
+2017-07-01 00:20:30.447 D  registerFont(Serif,HGSñæí©E)
+2017-07-01 00:20:30.447 D  registerFont(MonoSpace,HGënâpäpŒﬂØÃﬂëÃ)
+2017-07-01 00:20:30.447 D  registerFont(Serif,HGPënâpäpŒﬂØÃﬂëÃ)
+2017-07-01 00:20:30.447 D  registerFont(Serif,HGSënâpäpŒﬂØÃﬂëÃ)
+2017-07-01 00:20:30.447 D  registerFont(MonoSpace,HGënâpäp∫ﬁºØ∏UB)
+2017-07-01 00:20:30.447 D  registerFont(Serif,HGPënâpäp∫ﬁºØ∏UB)
+2017-07-01 00:20:30.447 D  registerFont(Serif,HGSënâpäp∫ﬁºØ∏UB)
+2017-07-01 00:20:30.447 D  registerFont(Serif,HGä€∫ﬁºØ∏M-PRO)
+2017-07-01 00:20:30.447 D  registerFont(MonoSpace,HG∫ﬁºØ∏E)
+2017-07-01 00:20:30.449 D  registerFont(Serif,HGP∫ﬁºØ∏E)
+2017-07-01 00:20:30.449 D  registerFont(Serif,HGS∫ﬁºØ∏E)
+2017-07-01 00:20:30.449 D  registerFont(Serif,Arial Unicode MS)
+2017-07-01 00:20:30.449 D  registerFont(Serif,Century)
+2017-07-01 00:20:30.449 D  registerFont(Fantasy,Tempus Sans ITC)
+2017-07-01 00:20:30.449 D  registerFont(Cursive,Pristina)
+2017-07-01 00:20:30.449 D  registerFont(Cursive,Papyrus)
+2017-07-01 00:20:30.449 D  registerFont(Cursive,Mistral)
+2017-07-01 00:20:30.449 D  registerFont(Cursive,Lucida Handwriting)
+2017-07-01 00:20:30.449 D  registerFont(Cursive,Kristen ITC)
+2017-07-01 00:20:30.449 D  registerFont(Fantasy,Juice ITC)
+2017-07-01 00:20:30.449 D  registerFont(Cursive,French Script MT)
+2017-07-01 00:20:30.449 D  registerFont(Cursive,Freestyle Script)
+2017-07-01 00:20:30.449 D  registerFont(Cursive,Bradley Hand ITC)
+2017-07-01 00:20:30.449 D  registerFont(Serif,Book Antiqua)
+2017-07-01 00:20:30.449 D  registerFont(Serif,Garamond)
+2017-07-01 00:20:30.449 D  registerFont(Cursive,Monotype Corsiva)
+2017-07-01 00:20:30.449 D  registerFont(SansSerif,Century Gothic)
+2017-07-01 00:20:30.449 D  registerFont(Fantasy,Algerian)
+2017-07-01 00:20:30.449 D  registerFont(Serif,Baskerville Old Face)
+2017-07-01 00:20:30.449 D  registerFont(Fantasy,Bauhaus 93)
+2017-07-01 00:20:30.449 D  registerFont(Serif,Bell MT)
+2017-07-01 00:20:30.449 D  registerFont(SansSerif,Berlin Sans FB)
+2017-07-01 00:20:30.449 D  registerFont(Serif,Bernard MT Condensed)
+2017-07-01 00:20:30.449 D  registerFont(Serif,Bodoni MT Poster Compressed)
+2017-07-01 00:20:30.449 D  registerFont(SansSerif,Britannic Bold)
+2017-07-01 00:20:30.449 D  registerFont(Fantasy,Broadway)
+2017-07-01 00:20:30.449 D  registerFont(Cursive,Brush Script MT)
+2017-07-01 00:20:30.449 D  registerFont(Serif,Californian FB)
+2017-07-01 00:20:30.449 D  registerFont(Serif,Centaur)
+2017-07-01 00:20:30.449 D  registerFont(Fantasy,Chiller)
+2017-07-01 00:20:30.449 D  registerFont(Fantasy,Colonna MT)
+2017-07-01 00:20:30.449 D  registerFont(Serif,Cooper Black)
+2017-07-01 00:20:30.449 D  registerFont(Serif,Footlight MT Light)
+2017-07-01 00:20:30.449 D  registerFont(Fantasy,Harlow Solid Italic)
+2017-07-01 00:20:30.449 D  registerFont(Fantasy,Harrington)
+2017-07-01 00:20:30.449 D  registerFont(Serif,High Tower Text)
+2017-07-01 00:20:30.449 D  registerFont(Fantasy,Jokerman)
+2017-07-01 00:20:30.449 D  registerFont(Cursive,Kunstler Script)
+2017-07-01 00:20:30.449 D  registerFont(Serif,Lucida Bright)
+2017-07-01 00:20:30.449 D  registerFont(Cursive,Lucida Calligraphy)
+2017-07-01 00:20:30.449 D  registerFont(Serif,Lucida Fax)
+2017-07-01 00:20:30.450 D  registerFont(Fantasy,Magneto)
+2017-07-01 00:20:30.450 D  registerFont(Cursive,Matura MT Script Capitals)
+2017-07-01 00:20:30.450 D  registerFont(Serif,Modern No. 20)
+2017-07-01 00:20:30.450 D  registerFont(Fantasy,Niagara Engraved)
+2017-07-01 00:20:30.450 D  registerFont(Fantasy,Niagara Solid)
+2017-07-01 00:20:30.450 D  registerFont(Cursive,Old English Text MT)
+2017-07-01 00:20:30.450 D  registerFont(Fantasy,Onyx)
+2017-07-01 00:20:30.450 D  registerFont(Cursive,Parchment)
+2017-07-01 00:20:30.450 D  registerFont(Fantasy,Playbill)
+2017-07-01 00:20:30.450 D  registerFont(Serif,Poor Richard)
+2017-07-01 00:20:30.450 D  registerFont(Fantasy,Ravie)
+2017-07-01 00:20:30.450 D  registerFont(Cursive,Informal Roman)
+2017-07-01 00:20:30.450 D  registerFont(Fantasy,Showcard Gothic)
+2017-07-01 00:20:30.450 D  registerFont(Fantasy,Snap ITC)
+2017-07-01 00:20:30.450 D  registerFont(Fantasy,Stencil)
+2017-07-01 00:20:30.450 D  registerFont(Cursive,Viner Hand ITC)
+2017-07-01 00:20:30.450 D  registerFont(Cursive,Vivaldi)
+2017-07-01 00:20:30.450 D  registerFont(Cursive,Vladimir Script)
+2017-07-01 00:20:30.450 D  registerFont(Serif,Wide Latin)
+2017-07-01 00:20:30.450 D  registerFont(SansSerif,Tw Cen MT)
+2017-07-01 00:20:30.450 D  registerFont(SansSerif,Tw Cen MT Condensed)
+2017-07-01 00:20:30.450 D  registerFont(Cursive,Script MT Bold)
+2017-07-01 00:20:30.450 D  registerFont(Serif,Rockwell Extra Bold)
+2017-07-01 00:20:30.450 D  registerFont(Serif,Rockwell Condensed)
+2017-07-01 00:20:30.450 D  registerFont(Serif,Rockwell)
+2017-07-01 00:20:30.450 D  registerFont(Cursive,Rage Italic)
+2017-07-01 00:20:30.450 D  registerFont(Serif,Perpetua Titling MT)
+2017-07-01 00:20:30.450 D  registerFont(Serif,Perpetua)
+2017-07-01 00:20:30.450 D  registerFont(Cursive,Palace Script MT)
+2017-07-01 00:20:30.450 D  registerFont(Serif,OCR A Extended)
+2017-07-01 00:20:30.450 D  registerFont(SansSerif,Maiandra GD)
+2017-07-01 00:20:30.450 D  registerFont(MonoSpace,Lucida Sans Typewriter)
+2017-07-01 00:20:30.450 D  registerFont(SansSerif,Lucida Sans)
+2017-07-01 00:20:30.450 D  registerFont(Fantasy,Imprint MT Shadow)
+2017-07-01 00:20:30.450 D  registerFont(SansSerif,Haettenschweiler)
+2017-07-01 00:20:30.450 D  registerFont(Serif,Goudy Stout)
+2017-07-01 00:20:30.450 D  registerFont(Serif,Goudy Old Style)
+2017-07-01 00:20:30.450 D  registerFont(Serif,Gloucester MT Extra Condensed)
+2017-07-01 00:20:30.450 D  registerFont(SansSerif,Gill Sans Ultra Bold Condensed)
+2017-07-01 00:20:30.450 D  registerFont(SansSerif,Gill Sans Ultra Bold)
+2017-07-01 00:20:30.450 D  registerFont(SansSerif,Gill Sans MT Condensed)
+2017-07-01 00:20:30.450 D  registerFont(SansSerif,Gill Sans MT)
+2017-07-01 00:20:30.450 D  registerFont(SansSerif,Gill Sans MT Ext Condensed Bold)
+2017-07-01 00:20:30.450 D  registerFont(Fantasy,Gigi)
+2017-07-01 00:20:30.450 D  registerFont(SansSerif,Franklin Gothic Medium Cond)
+2017-07-01 00:20:30.450 D  registerFont(SansSerif,Franklin Gothic Heavy)
+2017-07-01 00:20:30.450 D  registerFont(SansSerif,Franklin Gothic Demi Cond)
+2017-07-01 00:20:30.450 D  registerFont(SansSerif,Franklin Gothic Demi)
+2017-07-01 00:20:30.450 D  registerFont(SansSerif,Franklin Gothic Book)
+2017-07-01 00:20:30.450 D  registerFont(Cursive,Forte)
+2017-07-01 00:20:30.450 D  registerFont(Fantasy,Felix Titling)
+2017-07-01 00:20:30.450 D  registerFont(SansSerif,Eras Medium ITC)
+2017-07-01 00:20:30.450 D  registerFont(SansSerif,Eras Light ITC)
+2017-07-01 00:20:30.450 D  registerFont(SansSerif,Eras Demi ITC)
+2017-07-01 00:20:30.450 D  registerFont(SansSerif,Eras Bold ITC)
+2017-07-01 00:20:30.451 D  registerFont(Serif,Engravers MT)
+2017-07-01 00:20:30.451 D  registerFont(Serif,Elephant)
+2017-07-01 00:20:30.451 D  registerFont(Cursive,Edwardian Script ITC)
+2017-07-01 00:20:30.451 D  registerFont(Fantasy,Curlz MT)
+2017-07-01 00:20:30.451 D  registerFont(SansSerif,Copperplate Gothic Light)
+2017-07-01 00:20:30.451 D  registerFont(SansSerif,Copperplate Gothic Bold)
+2017-07-01 00:20:30.451 D  registerFont(Serif,Century Schoolbook)
+2017-07-01 00:20:30.451 D  registerFont(Serif,Castellar)
+2017-07-01 00:20:30.451 D  registerFont(Serif,Calisto MT)
+2017-07-01 00:20:30.451 D  registerFont(Serif,Bookman Old Style)
+2017-07-01 00:20:30.451 D  registerFont(Serif,Bodoni MT Condensed)
+2017-07-01 00:20:30.451 D  registerFont(Serif,Bodoni MT Black)
+2017-07-01 00:20:30.451 D  registerFont(Serif,Bodoni MT)
+2017-07-01 00:20:30.451 D  registerFont(Fantasy,Blackadder ITC)
+2017-07-01 00:20:30.451 D  registerFont(SansSerif,Arial Rounded MT Bold)
+2017-07-01 00:20:30.451 D  registerFont(SansSerif,Agency FB)
+2017-07-01 00:20:30.451 D  registerFont(SansSerif,MS Reference Sans Serif)
+2017-07-01 00:20:30.451 D  registerFont(SansSerif,Berlin Sans FB Demi)
+2017-07-01 00:20:30.451 D  registerFont(SansSerif,Tw Cen MT Condensed Extra Bold)
+2017-07-01 00:20:30.451 D  registerFont(SansSerif,Arial Narrow)
+2017-07-01 00:20:30.451 D  registerFont(Cursive,Buxton Sketch)
+2017-07-01 00:20:30.451 D  registerFont(Cursive,Segoe Marker)
+2017-07-01 00:20:30.451 D  registerFont(SansSerif,SketchFlow Print)
+2017-07-01 00:20:30.451 D  registerFont(MonoSpace,MyricaM M)
+2017-07-01 00:20:30.451 D  registerFont(Serif,MyricaM P)
+2017-07-01 00:20:30.451 D  registerFont(Serif,MyricaM N)
+2017-07-01 00:20:30.451 D  registerFont(SansSerif,Infty Font 5)
+2017-07-01 00:20:30.451 D  registerFont(SansSerif,Infty Font 6)
+2017-07-01 00:20:30.451 D  registerFont(SansSerif,Infty Font 7)
+2017-07-01 00:20:30.451 D  registerFont(SansSerif,Infty Font 8)
+2017-07-01 00:20:30.451 D  registerFont(MonoSpace,DengXian)
+2017-07-01 00:20:30.451 D  registerFont(SansSerif,Microsoft MHei)
+2017-07-01 00:20:30.451 D  registerFont(SansSerif,Microsoft NeoGothic)
+2017-07-01 00:20:30.451 D  registerFont(Serif,Yu Gothic)
+2017-07-01 00:20:30.451 D  registerFont(SansSerif,Segoe WP Black)
+2017-07-01 00:20:30.451 D  registerFont(SansSerif,Segoe WP)
+2017-07-01 00:20:30.451 D  registerFont(SansSerif,Segoe WP Semibold)
+2017-07-01 00:20:30.451 D  registerFont(SansSerif,Segoe WP Light)
+2017-07-01 00:20:30.451 D  registerFont(SansSerif,Segoe WP SemiLight)
+2017-07-01 00:20:30.451 D  registerFont(SansSerif,DejaVu Sans Condensed)
+2017-07-01 00:20:30.451 D  registerFont(SansSerif,OpenSymbol)
+2017-07-01 00:20:30.451 D  registerFont(SansSerif,Arimo)
+2017-07-01 00:20:30.451 D  registerFont(SansSerif,Gentium Basic)
+2017-07-01 00:20:30.451 D  registerFont(SansSerif,Gentium Book Basic)
+2017-07-01 00:20:30.451 D  registerFont(SansSerif,DejaVu Sans)
+2017-07-01 00:20:30.451 D  registerFont(MonoSpace,DejaVu Sans Mono)
+2017-07-01 00:20:30.451 D  registerFont(Serif,DejaVu Serif Condensed)
+2017-07-01 00:20:30.451 D  registerFont(Serif,DejaVu Serif)
+2017-07-01 00:20:30.451 D  registerFont(SansSerif,DejaVu Sans Light)
+2017-07-01 00:20:30.451 I  Found 249 font faces
+2017-07-01 00:20:30.451 D  initResourceManagers()
+2017-07-01 00:20:30.452 I  Creating ImageCache
+2017-07-01 00:20:30.452 I  Creating DrawableCache
+2017-07-01 00:20:30.452 D  Calling initSharedResourceManagers()
+2017-07-01 00:20:30.452 D  Calling initStandardEditorActions()
+2017-07-01 00:20:30.452 D  Calling registerStandardWidgets()
+2017-07-01 00:20:30.452 D  Registering standard widgets for DML
+2017-07-01 00:20:30.452 D  initResourceManagers() -- finished
+2017-07-01 00:20:30.452 D  Creating default theme
+2017-07-01 00:20:30.452 D  Loading Derelict GL
+2017-07-01 00:20:30.454 D  Derelict GL - loaded
+2017-07-01 00:20:30.455 I  Entering UIAppMain: []
+2017-07-01 00:20:30.455 V  Loading language file
+2017-07-01 00:20:30.455 D  Loading string resources from file @embedded@/std_en.ini
+2017-07-01 00:20:30.455 V  Calling onThemeChanged
+2017-07-01 00:20:30.455 V  uiTheme setting new theme theme_default
+2017-07-01 00:20:30.457 I  Applying loaded theme theme_default
+2017-07-01 00:20:30.457 D  Platform.createWindow is called
+2017-07-01 00:20:30.457 V  Platform.createWindow : setDefaultLanguageAndThemeIfNecessary
+2017-07-01 00:20:30.457 V  Platform.createWindow : new Win32Window
+2017-07-01 00:20:30.467 D  Window onCreate
+2017-07-01 00:20:30.467 V  created window, adding to map
+2017-07-01 00:20:30.480 V  Reloading DerelictGL3
+2017-07-01 00:20:30.482 V  Reloading DerelictGL
+2017-07-01 00:20:30.483 D  glSupport not initialized: trying to create
+2017-07-01 00:20:30.483 V  Compiling solid fill program
+2017-07-01 00:20:30.483 D  compileShader: glslVersion = 4.40 - Build 20.19.15.4549, type: GL_VERTEX_SHADER
+2017-07-01 00:20:30.483 D  compileShader: glslVersion = 4.40 - Build 20.19.15.4549, type: GL_FRAGMENT_SHADER
+2017-07-01 00:20:30.485 D  Program linked successfully
+2017-07-01 00:20:30.486 V  Program is initialized successfully
+2017-07-01 00:20:30.486 V  Compiling texture program
+2017-07-01 00:20:30.486 D  compileShader: glslVersion = 4.40 - Build 20.19.15.4549, type: GL_VERTEX_SHADER
+2017-07-01 00:20:30.486 D  compileShader: glslVersion = 4.40 - Build 20.19.15.4549, type: GL_FRAGMENT_SHADER
+2017-07-01 00:20:30.488 D  Program linked successfully
+2017-07-01 00:20:30.488 V  Program is initialized successfully
+2017-07-01 00:20:30.488 D  Shaders compiled successfully
+2017-07-01 00:20:30.488 V  OpenGL is initialized ok
+2017-07-01 00:20:30.491 D  Loading image from file @embedded@/btn_pressed.9.png
+2017-07-01 00:20:30.492 D  Loading image from file @embedded@/btn_default.9.png
+2017-07-01 00:20:30.492 D  Loading image from file @embedded@/btn_normal.9.png
+2017-07-01 00:20:30.492 D  Loading image from file @embedded@/btn_hover.9.png
+2017-07-01 00:20:30.493 D  Loading image from file @embedded@/btn_disabled.9.png
+2017-07-01 00:20:30.493 D  Loading image from file @embedded@/scrollbar_btn_left.png
+2017-07-01 00:20:30.493 D  Loading image from file @embedded@/scrollbar_btn_background_pressed.9.png
+2017-07-01 00:20:30.493 D  Loading image from file @embedded@/scrollbar_btn_background_normal.9.png
+2017-07-01 00:20:30.494 D  Loading image from file @embedded@/scrollbar_btn_background_hover.9.png
+2017-07-01 00:20:30.494 D  Loading image from file @embedded@/scrollbar_btn_right.png
+2017-07-01 00:20:30.494 D  Loading image from file @embedded@/scrollbar_indicator_horizontal.png
+2017-07-01 00:20:30.494 D  Loading image from file @embedded@/scrollbar_btn_background_disabled.9.png
+2017-07-01 00:20:30.506 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, 14069E, 208, 208, 600, 400, 268441667)
+2017-07-01 00:20:30.506 D  onResize 584x361
+2017-07-01 00:20:30.506 D  resize: measure took 0 ms
+2017-07-01 00:20:30.506 D  resize: layout took 0 ms
+2017-07-01 00:20:30.507 D  Platform.createWindow is called
+2017-07-01 00:20:30.507 V  Platform.createWindow : setDefaultLanguageAndThemeIfNecessary
+2017-07-01 00:20:30.507 V  Platform.createWindow : new Win32Window
+2017-07-01 00:20:30.507 D  Window onCreate
+2017-07-01 00:20:30.507 V  created window, adding to map
+2017-07-01 00:20:30.508 I  OpenGL context already exists. Setting pixel format.
+2017-07-01 00:20:30.517 D  WM_WINDOWPOSCHANGED: WINDOWPOS(23044A, 320448, 26, 26, 600, 400, 268441671)
+2017-07-01 00:20:30.517 D  onResize 584x361
+2017-07-01 00:20:30.518 D  resize: measure took 1 ms
+2017-07-01 00:20:30.518 D  resize: layout took 0 ms
+2017-07-01 00:20:30.529 V  created glyph cache page 1024x1024
+2017-07-01 00:20:30.539 V  created image cache page 1024x1024
+2017-07-01 00:20:30.545 D  updateTexture - new texture id=1
+2017-07-01 00:20:30.545 D  updateTexture for cache page - setting image 1024x1024 tx=1
+2017-07-01 00:20:30.563 D  updateTexture - new texture id=2
+2017-07-01 00:20:30.563 D  updateTexture for cache page - setting image 1024x1024 tx=2
+2017-07-01 00:20:30.602 D  updateTexture for cache page - setting image 1024x1024 tx=1
+2017-07-01 00:20:30.605 D  updateTexture for cache page - setting image 1024x1024 tx=2
+2017-07-01 00:20:31.531 D  WM_WINDOWPOSCHANGED: WINDOWPOS(23044A, 14069E, 26, 26, 600, 400, 6147)
+2017-07-01 00:20:31.532 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, 23044A, 208, 208, 600, 400, 6163)
+2017-07-01 00:20:32.221 D  updateTexture for cache page - setting image 1024x1024 tx=2
+2017-07-01 00:20:32.543 D  updateTexture for cache page - setting image 1024x1024 tx=2
+2017-07-01 00:20:32.596 D  Window.close()
+2017-07-01 00:20:32.596 D  WM_CLOSE: closing window 
+2017-07-01 00:20:32.597 D  WM_WINDOWPOSCHANGED: WINDOWPOS(23044A, null, 26, 26, 600, 400, 6295)
+2017-07-01 00:20:32.605 D  Window onDestroy
+2017-07-01 00:20:32.606 V  destroyed window, removing from map
+2017-07-01 00:20:32.606 E  Cannot find window in map by HWND
+2017-07-01 00:20:32.606 D  Window destructor
+2017-07-01 00:20:32.607 D  Destroying window
+2017-07-01 00:20:33.360 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 212, 206, 600, 400, 2581)
+2017-07-01 00:20:33.364 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 213, 206, 600, 400, 2581)
+2017-07-01 00:20:33.373 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 215, 206, 600, 400, 2581)
+2017-07-01 00:20:33.380 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 215, 204, 600, 400, 2581)
+2017-07-01 00:20:33.389 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 216, 204, 600, 400, 2581)
+2017-07-01 00:20:33.396 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 217, 204, 600, 400, 2581)
+2017-07-01 00:20:33.404 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 218, 204, 600, 400, 2581)
+2017-07-01 00:20:33.412 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 219, 204, 600, 400, 2581)
+2017-07-01 00:20:33.424 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 220, 204, 600, 400, 2581)
+2017-07-01 00:20:33.428 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 223, 203, 600, 400, 2581)
+2017-07-01 00:20:33.438 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 227, 203, 600, 400, 2581)
+2017-07-01 00:20:33.444 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 233, 202, 600, 400, 2581)
+2017-07-01 00:20:33.454 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 244, 202, 600, 400, 2581)
+2017-07-01 00:20:33.460 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 263, 202, 600, 400, 2581)
+2017-07-01 00:20:33.470 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 281, 202, 600, 400, 2581)
+2017-07-01 00:20:33.476 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 303, 202, 600, 400, 2581)
+2017-07-01 00:20:33.485 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 329, 202, 600, 400, 2581)
+2017-07-01 00:20:33.492 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 356, 199, 600, 400, 2581)
+2017-07-01 00:20:33.501 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 388, 199, 600, 400, 2581)
+2017-07-01 00:20:33.508 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 421, 199, 600, 400, 2581)
+2017-07-01 00:20:33.517 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 465, 199, 600, 400, 2581)
+2017-07-01 00:20:33.525 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 503, 199, 600, 400, 2581)
+2017-07-01 00:20:33.532 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 536, 199, 600, 400, 2581)
+2017-07-01 00:20:33.540 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 569, 199, 600, 400, 2581)
+2017-07-01 00:20:33.549 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 598, 199, 600, 400, 2581)
+2017-07-01 00:20:33.556 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 627, 199, 600, 400, 2581)
+2017-07-01 00:20:33.565 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 654, 199, 600, 400, 2581)
+2017-07-01 00:20:33.573 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 683, 199, 600, 400, 2581)
+2017-07-01 00:20:33.581 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 707, 199, 600, 400, 2581)
+2017-07-01 00:20:33.590 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 725, 199, 600, 400, 2581)
+2017-07-01 00:20:33.597 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 741, 199, 600, 400, 2581)
+2017-07-01 00:20:33.606 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 755, 199, 600, 400, 2581)
+2017-07-01 00:20:33.613 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 763, 199, 600, 400, 2581)
+2017-07-01 00:20:33.621 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 769, 199, 600, 400, 2581)
+2017-07-01 00:20:33.629 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 772, 199, 600, 400, 2581)
+2017-07-01 00:20:35.339 D  updateTexture for cache page - setting image 1024x1024 tx=1
+2017-07-01 00:20:37.845 D  updateTexture for cache page - setting image 1024x1024 tx=1
+2017-07-01 00:20:48.694 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 772, 199, 600, 400, 55351)
+2017-07-01 00:20:48.703 D  updateTexture for cache page - setting image 1024x1024 tx=1
+2017-07-01 00:20:56.494 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, 14069E, 772, 199, 600, 400, 6147)
+2017-07-01 00:22:04.518 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, 14069E, 772, 199, 600, 400, 55331)
+2017-07-01 00:22:56.997 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, 14069E, 789, 580, 600, 400, 51233)
+2017-07-01 00:22:58.903 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 787, 574, 600, 400, 2581)
+2017-07-01 00:22:58.919 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 786, 571, 600, 400, 2581)
+2017-07-01 00:22:58.919 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 786, 568, 600, 400, 2581)
+2017-07-01 00:22:58.935 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 786, 566, 600, 400, 2581)
+2017-07-01 00:22:58.935 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 786, 563, 600, 400, 2581)
+2017-07-01 00:22:58.950 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 786, 561, 600, 400, 2581)
+2017-07-01 00:22:58.950 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 786, 558, 600, 400, 2581)
+2017-07-01 00:22:58.966 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 786, 553, 600, 400, 2581)
+2017-07-01 00:22:58.981 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 786, 550, 600, 400, 2581)
+2017-07-01 00:22:58.981 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 786, 548, 600, 400, 2581)
+2017-07-01 00:22:58.997 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 786, 545, 600, 400, 2581)
+2017-07-01 00:22:59.013 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 786, 544, 600, 400, 2581)
+2017-07-01 00:22:59.013 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 786, 543, 600, 400, 2581)
+2017-07-01 00:22:59.013 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 786, 542, 600, 400, 2581)
+2017-07-01 00:22:59.028 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 786, 541, 600, 400, 2581)
+2017-07-01 00:22:59.028 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 786, 538, 600, 400, 2581)
+2017-07-01 00:22:59.044 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 786, 536, 600, 400, 2581)
+2017-07-01 00:22:59.044 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 786, 535, 600, 400, 2581)
+2017-07-01 00:22:59.060 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 786, 532, 600, 400, 2581)
+2017-07-01 00:22:59.060 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 786, 530, 600, 400, 2581)
+2017-07-01 00:22:59.075 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 786, 525, 600, 400, 2581)
+2017-07-01 00:22:59.075 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 786, 521, 600, 400, 2581)
+2017-07-01 00:22:59.091 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 787, 517, 600, 400, 2581)
+2017-07-01 00:22:59.091 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 787, 512, 600, 400, 2581)
+2017-07-01 00:22:59.106 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 788, 510, 600, 400, 2581)
+2017-07-01 00:22:59.106 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 790, 505, 600, 400, 2581)
+2017-07-01 00:22:59.122 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 790, 501, 600, 400, 2581)
+2017-07-01 00:22:59.122 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 791, 497, 600, 400, 2581)
+2017-07-01 00:22:59.138 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 792, 492, 600, 400, 2581)
+2017-07-01 00:22:59.138 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 794, 488, 600, 400, 2581)
+2017-07-01 00:22:59.153 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 795, 482, 600, 400, 2581)
+2017-07-01 00:22:59.153 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 799, 473, 600, 400, 2581)
+2017-07-01 00:22:59.169 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 803, 464, 600, 400, 2581)
+2017-07-01 00:22:59.169 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 807, 452, 600, 400, 2581)
+2017-07-01 00:22:59.185 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 810, 443, 600, 400, 2581)
+2017-07-01 00:22:59.185 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 814, 434, 600, 400, 2581)
+2017-07-01 00:22:59.200 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 817, 425, 600, 400, 2581)
+2017-07-01 00:22:59.200 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 819, 416, 600, 400, 2581)
+2017-07-01 00:22:59.216 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 822, 410, 600, 400, 2581)
+2017-07-01 00:22:59.216 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 824, 404, 600, 400, 2581)
+2017-07-01 00:22:59.231 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 825, 399, 600, 400, 2581)
+2017-07-01 00:22:59.231 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 827, 395, 600, 400, 2581)
+2017-07-01 00:22:59.247 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 828, 390, 600, 400, 2581)
+2017-07-01 00:22:59.247 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 830, 388, 600, 400, 2581)
+2017-07-01 00:22:59.263 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 831, 383, 600, 400, 2581)
+2017-07-01 00:22:59.263 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 833, 379, 600, 400, 2581)
+2017-07-01 00:22:59.278 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 834, 376, 600, 400, 2581)
+2017-07-01 00:22:59.294 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 835, 373, 600, 400, 2581)
+2017-07-01 00:22:59.294 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 837, 369, 600, 400, 2581)
+2017-07-01 00:22:59.310 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 838, 366, 600, 400, 2581)
+2017-07-01 00:22:59.310 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 840, 364, 600, 400, 2581)
+2017-07-01 00:22:59.325 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 841, 362, 600, 400, 2581)
+2017-07-01 00:22:59.325 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 841, 360, 600, 400, 2581)
+2017-07-01 00:22:59.341 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 842, 359, 600, 400, 2581)
+2017-07-01 00:22:59.341 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 843, 358, 600, 400, 2581)
+2017-07-01 00:22:59.372 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 843, 357, 600, 400, 2581)
+2017-07-01 00:22:59.388 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 843, 355, 600, 400, 2581)
+2017-07-01 00:22:59.419 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 843, 354, 600, 400, 2581)
+2017-07-01 00:22:59.419 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 843, 353, 600, 400, 2581)
+2017-07-01 00:22:59.435 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 843, 352, 600, 400, 2581)
+2017-07-01 00:24:22.950 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 843, 352, 600, 400, 55351)
+2017-07-01 00:24:28.247 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, 14069E, 843, 352, 600, 400, 6147)
+2017-07-01 00:25:04.091 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 838, 352, 600, 400, 2581)
+2017-07-01 00:25:04.091 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 835, 352, 600, 400, 2581)
+2017-07-01 00:25:04.091 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 831, 352, 600, 400, 2581)
+2017-07-01 00:25:04.106 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 823, 353, 600, 400, 2581)
+2017-07-01 00:25:04.106 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 812, 353, 600, 400, 2581)
+2017-07-01 00:25:04.122 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 796, 355, 600, 400, 2581)
+2017-07-01 00:25:04.122 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 777, 355, 600, 400, 2581)
+2017-07-01 00:25:04.138 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 753, 355, 600, 400, 2581)
+2017-07-01 00:25:04.138 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 717, 355, 600, 400, 2581)
+2017-07-01 00:25:04.153 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 678, 355, 600, 400, 2581)
+2017-07-01 00:25:04.153 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 640, 355, 600, 400, 2581)
+2017-07-01 00:25:04.169 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 602, 355, 600, 400, 2581)
+2017-07-01 00:25:04.169 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 563, 355, 600, 400, 2581)
+2017-07-01 00:25:04.185 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 525, 355, 600, 400, 2581)
+2017-07-01 00:25:04.185 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 496, 355, 600, 400, 2581)
+2017-07-01 00:25:04.200 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 463, 355, 600, 400, 2581)
+2017-07-01 00:25:04.200 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 440, 355, 600, 400, 2581)
+2017-07-01 00:25:04.216 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 421, 355, 600, 400, 2581)
+2017-07-01 00:25:04.216 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 407, 355, 600, 400, 2581)
+2017-07-01 00:25:04.231 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 402, 355, 600, 400, 2581)
+2017-07-01 00:25:04.435 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 399, 355, 600, 400, 2581)
+2017-07-01 00:25:04.450 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 396, 355, 600, 400, 2581)
+2017-07-01 00:25:04.450 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 394, 355, 600, 400, 2581)
+2017-07-01 00:25:04.466 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 389, 352, 600, 400, 2581)
+2017-07-01 00:25:04.466 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 385, 349, 600, 400, 2581)
+2017-07-01 00:25:04.482 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 378, 344, 600, 400, 2581)
+2017-07-01 00:25:04.482 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 369, 338, 600, 400, 2581)
+2017-07-01 00:25:04.497 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 357, 334, 600, 400, 2581)
+2017-07-01 00:25:04.497 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 340, 326, 600, 400, 2581)
+2017-07-01 00:25:04.513 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 321, 319, 600, 400, 2581)
+2017-07-01 00:25:04.513 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 302, 313, 600, 400, 2581)
+2017-07-01 00:25:04.528 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 282, 307, 600, 400, 2581)
+2017-07-01 00:25:04.528 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 263, 302, 600, 400, 2581)
+2017-07-01 00:25:04.544 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 247, 298, 600, 400, 2581)
+2017-07-01 00:25:04.544 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 233, 294, 600, 400, 2581)
+2017-07-01 00:25:04.560 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 221, 290, 600, 400, 2581)
+2017-07-01 00:25:04.560 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 212, 289, 600, 400, 2581)
+2017-07-01 00:25:04.575 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 208, 287, 600, 400, 2581)
+2017-07-01 00:25:04.575 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 205, 287, 600, 400, 2581)
+2017-07-01 00:25:41.278 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, 14069E, 205, 287, 600, 400, 6147)
+2017-07-01 00:25:41.419 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 219, 287, 600, 400, 2581)
+2017-07-01 00:25:41.435 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 227, 287, 600, 400, 2581)
+2017-07-01 00:25:41.435 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 241, 286, 600, 400, 2581)
+2017-07-01 00:25:41.435 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 259, 284, 600, 400, 2581)
+2017-07-01 00:25:41.450 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 289, 279, 600, 400, 2581)
+2017-07-01 00:25:41.450 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 325, 274, 600, 400, 2581)
+2017-07-01 00:25:41.466 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 366, 269, 600, 400, 2581)
+2017-07-01 00:25:41.466 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 418, 263, 600, 400, 2581)
+2017-07-01 00:25:41.481 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 469, 257, 600, 400, 2581)
+2017-07-01 00:25:41.481 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 521, 251, 600, 400, 2581)
+2017-07-01 00:25:41.497 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 572, 245, 600, 400, 2581)
+2017-07-01 00:25:41.497 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 634, 238, 600, 400, 2581)
+2017-07-01 00:25:41.513 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 686, 232, 600, 400, 2581)
+2017-07-01 00:25:41.513 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 725, 229, 600, 400, 2581)
+2017-07-01 00:25:41.528 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 760, 227, 600, 400, 2581)
+2017-07-01 00:25:41.528 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 786, 227, 600, 400, 2581)
+2017-07-01 00:25:41.544 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 808, 227, 600, 400, 2581)
+2017-07-01 00:25:41.544 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 824, 227, 600, 400, 2581)
+2017-07-01 00:25:41.560 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 834, 227, 600, 400, 2581)
+2017-07-01 00:25:41.560 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 840, 227, 600, 400, 2581)
+2017-07-01 00:25:41.575 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 845, 227, 600, 400, 2581)
+2017-07-01 00:25:46.356 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 837, 229, 600, 400, 2581)
+2017-07-01 00:25:46.356 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 828, 232, 600, 400, 2581)
+2017-07-01 00:25:46.356 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 819, 236, 600, 400, 2581)
+2017-07-01 00:25:46.372 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 808, 240, 600, 400, 2581)
+2017-07-01 00:25:46.372 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 796, 243, 600, 400, 2581)
+2017-07-01 00:25:46.388 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 785, 247, 600, 400, 2581)
+2017-07-01 00:25:46.388 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 771, 251, 600, 400, 2581)
+2017-07-01 00:25:46.403 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 754, 253, 600, 400, 2581)
+2017-07-01 00:25:46.403 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 735, 258, 600, 400, 2581)
+2017-07-01 00:25:46.419 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 716, 260, 600, 400, 2581)
+2017-07-01 00:25:46.419 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 695, 262, 600, 400, 2581)
+2017-07-01 00:25:46.435 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 673, 264, 600, 400, 2581)
+2017-07-01 00:25:46.435 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 652, 266, 600, 400, 2581)
+2017-07-01 00:25:46.450 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 630, 268, 600, 400, 2581)
+2017-07-01 00:25:46.450 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 606, 270, 600, 400, 2581)
+2017-07-01 00:25:46.466 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 582, 270, 600, 400, 2581)
+2017-07-01 00:25:46.466 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 556, 270, 600, 400, 2581)
+2017-07-01 00:25:46.481 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 532, 270, 600, 400, 2581)
+2017-07-01 00:25:46.481 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 511, 270, 600, 400, 2581)
+2017-07-01 00:25:46.497 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 492, 270, 600, 400, 2581)
+2017-07-01 00:25:46.497 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 476, 270, 600, 400, 2581)
+2017-07-01 00:25:46.513 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 460, 270, 600, 400, 2581)
+2017-07-01 00:25:46.513 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 449, 270, 600, 400, 2581)
+2017-07-01 00:25:46.528 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 441, 270, 600, 400, 2581)
+2017-07-01 00:25:46.528 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 437, 270, 600, 400, 2581)
+2017-07-01 00:26:44.903 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, 14069E, 437, 270, 600, 400, 6147)
+2017-07-01 00:29:20.622 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, 14069E, 437, 270, 600, 400, 6147)
+2017-07-01 00:29:28.935 D  Platform.createWindow is called
+2017-07-01 00:29:28.935 V  Platform.createWindow : setDefaultLanguageAndThemeIfNecessary
+2017-07-01 00:29:28.935 V  Platform.createWindow : new Win32Window
+2017-07-01 00:29:28.935 D  Window onCreate
+2017-07-01 00:29:28.935 V  created window, adding to map
+2017-07-01 00:29:28.935 I  OpenGL context already exists. Setting pixel format.
+2017-07-01 00:29:28.935 D  WM_WINDOWPOSCHANGED: WINDOWPOS(3C03F0, 2004B4, 26, 26, 600, 400, 268441671)
+2017-07-01 00:29:28.935 D  onResize 584x361
+2017-07-01 00:29:28.935 D  resize: measure took 0 ms
+2017-07-01 00:29:28.935 D  resize: layout took 0 ms
+2017-07-01 00:29:28.950 D  updateTexture for cache page - setting image 1024x1024 tx=1
+2017-07-01 00:29:28.981 D  updateTexture for cache page - setting image 1024x1024 tx=1
+2017-07-01 00:29:30.325 D  WM_CLOSE: closing window 
+2017-07-01 00:29:30.325 D  WM_WINDOWPOSCHANGED: WINDOWPOS(3C03F0, null, 26, 26, 600, 400, 6295)
+2017-07-01 00:29:30.325 D  WM_WINDOWPOSCHANGED: WINDOWPOS(3C03F0, 2004B4, 26, 26, 600, 400, 6171)
+2017-07-01 00:29:30.325 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, 3C03F0, 437, 270, 600, 400, 6147)
+2017-07-01 00:29:30.325 D  Window onDestroy
+2017-07-01 00:29:30.325 V  destroyed window, removing from map
+2017-07-01 00:29:30.325 E  Cannot find window in map by HWND
+2017-07-01 00:29:30.325 D  Window destructor
+2017-07-01 00:29:30.325 D  Destroying window
+2017-07-01 00:29:30.325 D  Window.close()
+2017-07-01 00:29:30.325 D  WM_CLOSE: closing window 
+2017-07-01 00:29:30.341 D  WM_WINDOWPOSCHANGED: WINDOWPOS(2600BE, null, 437, 270, 600, 400, 536877207)
+2017-07-01 00:29:30.357 D  Window onDestroy
+2017-07-01 00:29:30.357 V  destroyed window, removing from map
+2017-07-01 00:29:30.372 E  Cannot find window in map by HWND
+2017-07-01 00:29:30.372 I  UIAppMain returned 0
+2017-07-01 00:29:30.372 E  Non-zero Widget instance count when exiting: 5
+2017-07-01 00:29:30.372 I  Destroying DrawableCache
+2017-07-01 00:29:30.372 I  Destroying ImageCache
+2017-07-01 00:29:30.372 I  Destroying Win32FontManager
+2017-07-01 00:29:30.372 D  Destroying font manager
+2017-07-01 00:29:30.372 E  Non-zero DrawBuf instance count when exiting: 1
+2017-07-01 00:29:30.372 E  Non-zero Style instance count when exiting: 3
+2017-07-01 00:29:30.372 E  Non-zero Drawable instance count when exiting: 3
+2017-07-01 00:29:30.372 D  Exiting main
+2017-07-01 00:29:30.372 D  Calling GC.collect
+2017-07-01 00:29:30.372 E  Non-zero DrawBuf instance count when exiting: 1
